@@ -1,0 +1,8 @@
+node_modules/
+public/
+ressources/
+themes/
+resources/
+
+.hugo_build*
+*.swp
