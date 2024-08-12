@@ -29,7 +29,13 @@ theme = "adritian-free-hugo-theme"
 #  name = "About"
 #  URL = "#about"
 #  weight = 2
-
+ 
+  [[menu.header]]
+  name = "Experience"
+  URL = "#experience"
+  weight = 2
+  
+  
   [[menu.header]]
   name = "Projects"
   URL = "#portfolio"
@@ -40,19 +46,15 @@ theme = "adritian-free-hugo-theme"
   URL = "#contact"
   weight = 5
 
-#  [[menu.footer]]
-#  name = "About"
-#  URL = "#about"
-#  weight = 2
 
   [[menu.footer]]
-  name = "Projects"
-  URL = "#portfolio"
+  name = "GitHub"
+  URL = "https://github.com/loiclovitana"
   weight = 3
 
   [[menu.footer]]
-  name = "Contact"
-  URL = "#contact"
+  name = "Linkedin"
+  URL = "https://www.linkedin.com/in/lo%C3%AFc-vandenberghe-693729166/"
   weight = 4
 
 
@@ -60,7 +62,7 @@ theme = "adritian-free-hugo-theme"
 
   sections = ["showcase", "education", "experience", "client_and_work", "contact"]
 
-  homepageExperienceCount = 3
+  homepageExperienceCount = 999
 
   [params.google_analytics]
       code = "UA-XXXXX-Y"
@@ -79,3 +81,9 @@ theme = "adritian-free-hugo-theme"
         x = "img/general/design-and-code-radity.png"
         _2x = "img/general/design-and-code-radity@2x.png"
         alt = "Design & Code - Radity"
+
+
+
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_']

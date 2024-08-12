@@ -179,20 +179,20 @@ contact:
     message: "Type Your Message Here"
   phone:
     title: "Phone Number"
-    number: "+555 (11) 123 44 55"
+    number: "myphonenumber"
   email:
     title: "Email"
     email: '<a href="mailto:mail@example.com">mail@example.com</a>'
   address:
-    title: "Address"
-    address: "Exact street/neighborhood (you can omit this)<br />Postcode, City"
+    title: "Location"
+    address: "Switzerland, Fribourg/Freiburg"
   button:
     icon: "icon-mail-fill"
     btnText: "Send Message"
 
 # newsletter
 newsletter:
-  enable: true
+  enable: false
   title: "Newsletter subscription"
   success_message: "Successfully subscribed"
   error_message: "Error while subscribing."
