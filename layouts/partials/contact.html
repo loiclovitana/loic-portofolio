@@ -34,9 +34,9 @@
                 </div>
                 <div class="col-12 col-lg-5 contact__info">
                     <h3>{{ .Site.Data.homepage.contact.phone.title }}</h3>
-                    <span>{{ getenv  "HUGO_PHONE"}}</span>
+                    <span>{{ getenv  "HUGO_CONTACT_PHONE"}}</span>
                     <h3>{{ .Site.Data.homepage.contact.email.title }}</h3>
-					<span><a href='mailto:{{ getenv  "HUGO_EMAIL"}}'>{{ getenv  "HUGO_EMAIL"}}</a></span>
+					<span><a href='mailto:{{ getenv  "HUGO_CONTACT_EMAIL"}}'>{{ getenv  "HUGO_CONTACT_EMAIL"}}</a></span>
                     <h3>{{ .Site.Data.homepage.contact.address.title }}</h3>
                     <span>{{ .Site.Data.homepage.contact.address.address | safeHTML }}</span>
                 </div>
