@@ -37,9 +37,8 @@
 	"forwardPorts": [
 		1313
 	],
-	"initializeCommand": "git submodule init && git submodule update",
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
+	 "postCreateCommand": "git submodule init && git submodule update",
 
 	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node"
