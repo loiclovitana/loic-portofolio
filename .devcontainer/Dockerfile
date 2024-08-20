@@ -24,7 +24,10 @@ RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
     echo ${ARCH} && \
     wget -O ${VERSION}.tar.gz https://github.com/gohugoio/hugo/releases/download/v${VERSION}/${VARIANT}_${VERSION}_Linux-${ARCH}.tar.gz && \
     tar xf ${VERSION}.tar.gz && \
-    mv hugo /usr/bin/hugo && \
-    npm i -D postcss postcss-cli autoprefixer
+    mv hugo /usr/bin/hugo
+    
 # Hugo dev server port
 EXPOSE 1313
+
+# npm dependencies
+RUN npm i -D postcss postcss-cli autoprefixer
