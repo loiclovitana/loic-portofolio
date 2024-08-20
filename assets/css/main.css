@@ -9525,6 +9525,7 @@ html body {
 }
 .container-experience{
 	padding-left:30px;
+	max-width:50%;
 }
 .experience__title {
     position: relative;
