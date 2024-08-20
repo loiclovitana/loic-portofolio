@@ -30,4 +30,4 @@ RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
 EXPOSE 1313
 
 # npm dependencies
-RUN npm i -D postcss postcss-cli autoprefixer
+RUN sudo -u node npm install -g -D postcss postcss-cli autoprefixer
