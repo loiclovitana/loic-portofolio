@@ -19,7 +19,10 @@ duration: "09.2020-02.2021"
 I integrated the Neosis team as a data scientist. My role was to do an in-depth analysis on customer data concerning the payment and billing of social insurance. The goal was to find meaningfull way to exploit the available data, see if there exist process that could be improved with the buisness experts and find machine learning solutions that could help them.
 
 ## Projects
-### Master thesis : Interest Forecast in Contribution payment  
+### Master thesis : Interest Forecast in Contribution payment
 
+Machine learning solution used that used insurance data on contribution payment.  
+Use of LSTMs and Random Forest to determine if a deposit might be over- or under-valuated which might lead to interest.  
+Integration of the prediction via Tableau so that buisness expert can visualize the data.  
 [More about the project](../../#portofolio)
 

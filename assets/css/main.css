@@ -9539,8 +9539,15 @@ html body {
     font-size: medium;
 }
 .container-experience a{
-    font-size: small;
+    font-size: 16px;
+    font-weight: 300;
     color: var(--primary);
+}
+.container-experience br{
+    margin: 1em;
+}
+.container-experience p{
+    font-size: 16px;
 }
 .experience__title {
     position: relative;
