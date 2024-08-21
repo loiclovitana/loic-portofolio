@@ -101,23 +101,11 @@ client_and_work:
 of production data to improve performances"
       button:
         icon: "icon-arrow-right"
-        btnText: "Learn More"
-        URL: "#"
+        btnText: "Try it yourself"
+        URL: "https://www.caisseavsvaud.ch/fr/Portrait/Bienvenue-a-la-CCVD/Bienvenue-a-la-CCVD.html"
       image:
-        x: "images/works/radity-finance.jpg"
-        _2x: "images/works/radity-finance@2x.jpg"
-      is_even: true
-
-    - title: "AI prediction for the reassessment of disability insurance files"
-      description: "Use of Gradient Boosting to determine which disability insurance files need to be
-reassessed"
-      button:
-        icon: "icon-arrow-right"
-        btnText: "Learn More"
-        URL: "#"
-      image:
-        x: "images/works/robo-advisor.jpg"
-        _2x: "images/works/robo-advisor@2x.jpg"
+        x: "images/works/chatbotCCVD.gif"
+        _2x: "images/works/chatbotCCVD.gif"
       is_even: false
 
     - title: "Master Thesis: Interest Forecast in Contribution payment"
@@ -125,7 +113,7 @@ reassessed"
       button:
         icon: "icon-arrow-right"
         btnText: "Learn More"
-        URL: "#"
+        URL: "/experience/elca_interne/"
       image:
         x: "images/works/thesis_graph.jpg"
         _2x: "images/works/thesis_graph.jpg"

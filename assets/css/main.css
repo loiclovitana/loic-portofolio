@@ -9527,6 +9527,28 @@ html body {
 	padding-left:30px;
 	max-width:50%;
 }
+.container-experience h1{
+    font-size: x-large;
+    color: var(--primary);
+}
+
+.container-experience h2{
+    font-size: large;
+}
+.container-experience h3{
+    font-size: medium;
+}
+.container-experience a{
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--primary);
+}
+.container-experience br{
+    margin: 1em;
+}
+.container-experience p{
+    font-size: 16px;
+}
 .experience__title {
     position: relative;
     font-size: 20px;
@@ -9817,6 +9839,7 @@ textarea:focus {
     transition-duration: 0.35s;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
+    background-color: white;
 }
 .header::before {
     position: absolute;
