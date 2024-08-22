@@ -12,10 +12,10 @@ showcase:
     With a wide range of experiences—from data analysis and machine learning to software development and system architecture—I bring a holistic approach to solving complex problems. Whether I'm diving into data-driven insights or crafting robust systems, I always focus on the solution that best meets the needs for both the team and end-users.
     My passion lies in building efficient, scalable and modulable systems and fostering collaborative teams that continuously innovate and improve.
   image:
-    x: "images/showcase/showcase.png"
-    _2x: "images/showcase/showcase@2x.png"
+    x: "images/home/profil.png"
+    _2x: "images/home/profil.png"
   imageMobile:
-    x: "images/showcase/showcase-mobile.jpg"
+    x: "images/home/profil.png"
 
   button:
     icon: "icon-mail-fill"
