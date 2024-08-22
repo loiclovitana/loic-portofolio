@@ -75,8 +75,7 @@ education:
 experience:
   enable: true
   title: "Experience"
-  description: >
-    This is where you can highlight a bit over your experience. Years of total experience, specialization, etc.
+  description: With five years of experience working on large-scale projects, I have consistently demonstrated a deep understanding of business priorities and the critical stakes involved. My ability to contribute to important decision-making processes and guide new team members has proven me to be a valuable asset. I bring both leadership and strategic insight, making me a strong contributor to any project's success.  
   button:
     icon: "icon-linkedin-fill"
     btnText: "Linkedin"
