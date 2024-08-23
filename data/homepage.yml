@@ -160,7 +160,8 @@ contact:
   enable: true
   title: "Contact"
   form:
-    action: "#"
+    action: "https://api.web3forms.com/submit"
+    method: "POST"
     full_name: "Full Name"
     email: "Email Address"
     message: "Type Your Message Here"
