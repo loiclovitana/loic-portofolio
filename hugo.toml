@@ -1,4 +1,4 @@
-baseURL = "https://www.loic.vandenberghe.ch"
+baseURL = "https://loic.vandenberghe.ch"
 languageCode = "en-us"
 theme = "adritian-free-hugo-theme"
 
