@@ -9549,6 +9549,19 @@ html body {
 .container-experience p{
     font-size: 16px;
 }
+.container-experience-description{
+    padding-left:30px;
+}
+.container-experience-description h1{
+    font-size: x-large;
+    color: var(--primary);
+}
+.container-experience-description br{
+    margin: 1em;
+}
+.container-experience-description p{
+    font-size: 16px;
+}
 .experience__title {
     position: relative;
     font-size: 20px;
