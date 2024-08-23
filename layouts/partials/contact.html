@@ -5,7 +5,8 @@
             <h2>{{ .Site.Data.homepage.contact.title }}</h2>
             <div class="row pt-2">
                 <div class="col-12 col-lg-7">
-                    <form action="{{ .Site.Data.homepage.contact.form.action }}/{{ getenv  "HUGO_CONTACT_EMAIL"}}" method="{{ .Site.Data.homepage.contact.form.method }}">
+                    <form action="{{ .Site.Data.homepage.contact.form.action }}" method="{{ .Site.Data.homepage.contact.form.method }}">
+                        <input type="hidden" name="access_key" value='{{getenv "HUGO_CONTACT_API_KEY"}}'>
                         <div class="row">
                             <div class="col-12 col-sm-6">
                                 <input type="text" name="full_name" id="full_name"
@@ -30,6 +31,8 @@
                                 </button>
                             </div>
                         </div>
+                        <!-- Honeypot Spam Protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                     </form>
                 </div>
                 <div class="col-12 col-lg-5 contact__info">
