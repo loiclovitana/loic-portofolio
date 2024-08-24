@@ -1,3 +1,5 @@
+name: Build hugo website
+
 on:
   workflow_call:
   pull_request:
