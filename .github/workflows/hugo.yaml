@@ -61,7 +61,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL https://${HUGO_BASE_URL}/         
+            --baseURL ${HUGO_BASE_URL}        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
