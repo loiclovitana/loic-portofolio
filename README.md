@@ -1,6 +1,6 @@
 # My portofolio
 
-![Deployment](https://github.com/loiclovitana/loic-portofolio/actions/workflows/build-hugo.yaml/badge.svg)
+![Build](https://github.com/loiclovitana/loic-portofolio/actions/workflows/build-hugo.yaml/badge.svg)
 ![Deployment](https://github.com/loiclovitana/loic-portofolio/actions/workflows/deploy-hugo.yaml/badge.svg)
 
 Website using the Hugo framework used as my portofolio for past experience and projects.
