@@ -1,5 +1,15 @@
 ---
-date: 2007-12-01T00:00:00+01:00
+skills:
+    - Data science
+    - Pytorch
+    - Scikit-Learn
+    - Pandas Dataframe
+    - Tableau Software
+    - Data Visualisation
+    - Python
+    - Git
+    - Machine Learning
+    - AI
 draft: false
 title: "Data science Intern"
 jobTitle: "Data science Intern"

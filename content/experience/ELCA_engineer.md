@@ -1,5 +1,17 @@
 ---
-date: 2007-12-01T00:00:00+01:00
+categories:
+    - experience
+skill:
+    - Data science
+    - SSIS (SQL Server Integration Services)
+    - Microsoft SQL Server
+    - Transact-SQL
+    - Git
+    - Microsoft Azure
+    - Chatbot
+    - Machine Learning
+    - Bitbucket
+    - AI
 draft: false
 title: "Data engineer"
 jobTitle: "Data engineer"
