@@ -1,7 +1,7 @@
 ---
 categories:
     - experience
-skill:
+skills:
     - Data science
     - SSIS (SQL Server Integration Services)
     - Microsoft SQL Server
@@ -13,11 +13,12 @@ skill:
     - Bitbucket
     - AI
 draft: false
-title: "Data engineer"
+title: "ELCA - Data engineer"
 jobTitle: "Data engineer"
 company: "ELCA Informatique"
 location: "Lausanne, Switzerland"
-duration: "03.2021-Present"
+duration: "03.2021 - Present"
+date: 2021-03-01
 ---
 
 # Continuing at ELCA

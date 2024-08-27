@@ -1,4 +1,7 @@
 ---
+
+categories:
+    - experience
 skills:
     - Data science
     - Pytorch
@@ -11,12 +14,12 @@ skills:
     - Machine Learning
     - AI
 draft: false
-title: "Data science Intern"
+title: "ELCA - Data science Intern"
 jobTitle: "Data science Intern"
 company: "ELCA Informatique"
 location: "Lausanne, Switzerland"
-duration: "09.2020-02.2021"
-
+duration: "09.2020 - 02.2021"
+date: 2020-09-01
 ---
 # First company experience
 
