@@ -26,6 +26,7 @@ jobs:
 
   build:
     uses: ./.github/workflows/build-hugo.yaml
+    secrets: inherit
 
   # Deployment job  
   deploy:
