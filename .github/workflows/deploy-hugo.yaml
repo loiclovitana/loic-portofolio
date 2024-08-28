@@ -29,11 +29,6 @@ jobs:
 
   # Deployment job  
   deploy:
-    env:
-      HUGO_CONTACT_EMAIL: ${{vars.HUGO_CONTACT_EMAIL}}
-      HUGO_CONTACT_PHONE: ${{vars.HUGO_CONTACT_PHONE}}
-      HUGO_CONTACT_API_KEY: ${{secrets.HUGO_CONTACT_API_KEY}}
-      HUGO_BASE_URL: ${{ vars.HUGO_BASE_URL}}
     environment:
       name: github-pages
       url:  ${{vars.HUGO_BASE_URL}}
@@ -43,4 +38,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        env:
+          HUGO_CONTACT_API_KEY: ${{secrets.HUGO_CONTACT_API_KEY}}
 
