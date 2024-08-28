@@ -87,3 +87,9 @@ theme = "adritian-free-hugo-theme"
 [security]
   [security.funcs]
     getenv = ['^HUGO_']
+
+
+
+[taxonomies]
+  skill = 'skills'
+  category = 'categories'

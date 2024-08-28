@@ -21,7 +21,6 @@ jobs:
       HUGO_VERSION: 0.133.0
       HUGO_CONTACT_EMAIL: ${{vars.HUGO_CONTACT_EMAIL}}
       HUGO_CONTACT_PHONE: ${{vars.HUGO_CONTACT_PHONE}}
-      HUGO_CONTACT_API_KEY: ${{vars.HUGO_CONTACT_API_KEY}}
       HUGO_BASE_URL: ${{ vars.HUGO_BASE_URL}}
     steps:
       - name: Install Hugo CLI
@@ -42,6 +41,7 @@ jobs:
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
+          HUGO_CONTACT_API_KEY: ${{secrets.HUGO_CONTACT_API_KEY}}
           TZ: America/Los_Angeles
         run: |
           hugo \

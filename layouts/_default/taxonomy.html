@@ -1,0 +1,32 @@
+<!-- inject:../components/baseHead/baseHeadStart.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{ partial "head.html" . }} {{ partial "head_custom.html" . }}
+</head>
+
+<body>
+  {{ partial "header.html" . }}
+  {{ $taxonomyObject := .Data.Terms }}
+
+
+
+  <main class="list"> 
+    <section class="container section">
+      <h1>{{ .Title }}</h1>
+      {{ range $term, $weightedPages := $taxonomyObject }}
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+        <ul>
+            {{ range $weightedPages }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+    {{ end }}
+    </section>
+  </main>
+
+  {{ partial "footer.html" . }} {{ partial "base-foot.html" . }}
+</body>
+
+</html>
