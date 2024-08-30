@@ -1,0 +1,104 @@
+.experience + .experience {
+    padding-top: 50px;
+}
+
+/*
+    === Title
+*/
+
+.experience__title {
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    z-index: 2;
+}
+@media (min-width: 992px) {
+    .experience__title {
+        font-size: 24px;
+    }
+}
+.experience__location{
+	font-size: 14px;
+}
+.experience__company {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/*
+    Container & content
+*/
+.container-experience{
+	padding-left:30px;
+	max-width:50%;
+}
+@media (max-width:800px) {
+    .container-experience {
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: 100%;
+    }
+}
+.container-experience h1{
+    font-size: x-large;
+    color: var(--primary);
+}
+
+.container-experience h2{
+    font-size: large;
+}
+.container-experience h3{
+    font-size: medium;
+}
+.container-experience a{
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--primary);
+}
+.container-experience br{
+    margin: 1em;
+}
+.container-experience p{
+    font-size: 16px;
+}
+.container-experience-description{
+    padding-left:30px;
+}
+.container-experience-description h1{
+    font-size: x-large;
+    color: var(--primary);
+}
+.container-experience-description br{
+    margin: 1em;
+}
+.container-experience-description p{
+    font-size: 16px;
+}
+
+
+/*
+    Scrolling
+*/
+.scroll-experience{
+	overflow-y:scroll;
+	overflow-x:hidden;
+	height:600px;
+	scrollbar-color: var(--primary) #f2f2f2;
+    scrollbar-width: thin;
+	margin-top: 0 !important;
+	-webkit-box-flex: 0;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+	position: relative;
+	width: 100%;
+	padding-right: 0px;
+	padding-left: 15px;
+}
+@media (max-width:800px) {
+    .scroll-experience{
+        max-width: 100%;
+        padding-right: 10px;
+	    padding-left: 10px;
+    }
+}
