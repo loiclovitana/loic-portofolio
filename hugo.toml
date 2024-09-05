@@ -66,7 +66,7 @@ theme = "adritian-free-hugo-theme"
 
 [params]
 
-  sections = ["showcase", "education", "experience", "client_and_work", "contact"]
+  sections = ["showcase","skills_tag", "education", "experience", "client_and_work", "contact"]
 
   homepageExperienceCount = 999
 

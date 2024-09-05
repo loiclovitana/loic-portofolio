@@ -1,0 +1,9 @@
+<section class="section section--border-bottom rad-animation-group">
+    <div class="container">
+        <ul id="all-skills">
+            {{ range $name, $taxonomy := .Site.Taxonomies.skills }}
+              <li><a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+            {{ end }}
+          </ul>
+    </div>
+</section>
