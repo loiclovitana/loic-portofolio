@@ -1,9 +1,10 @@
 <section class="section section--border-bottom rad-animation-group">
     <div class="container">
-        <ul id="all-skills">
+        <div class="all-skills">
             {{ range $name, $taxonomy := .Site.Taxonomies.skills }}
-              <li><a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+              <a href="{{ "/skills/" | relLangURL }}{{ $name | urlize }}"><button type="submit" class="skill-button">{{ $name }}</button></a>
             {{ end }}
-          </ul>
+        </div>
+          
     </div>
 </section>
