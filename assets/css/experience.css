@@ -66,8 +66,7 @@
     padding-left:30px;
 }
 .container-experience-description h1{
-    font-size: x-large;
-    color: var(--primary);
+    line-height: 2em;
 }
 .container-experience-description br{
     margin: 1em;
