@@ -9,8 +9,12 @@
     border-radius: 5px;
     border-left-width: 0px;
     border-top-width: 0px;
+    padding: 5px 14px 5px 14px;
   }
 
 .all-skills{
     font-size:large;
+}
+.socialLink{
+  font-size:large;
 }
