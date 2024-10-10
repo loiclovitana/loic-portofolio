@@ -19,7 +19,7 @@
         {{ range .Site.Data.homepage.showcase.socialLinks }}
         <a  href="{{ .URL | absURL }}" class="socialButton" target="_blank" rel="noopener noreferrer"
           aria-label="{{ .icon }}">
-          <i class="icon-{{ .icon }}-line"></i>{{ .btnText }}
+          <i class="{{ .icon }}"></i>{{ .btnText }}
         </a>
         {{ end }}
 

@@ -23,10 +23,10 @@ showcase:
     URL: "#contact"
 
   socialLinks:
-   - icon: "linkedin"
+   - icon: "icon-linkedin-line"
      URL: "https://www.linkedin.com/in/lo%C3%AFc-vandenberghe-693729166/"
      btnText: ""
-   - icon: "github"
+   - icon: "fa-brands fa-github"
      URL: "https://github.com/loiclovitana"
      btnText: ""
 
