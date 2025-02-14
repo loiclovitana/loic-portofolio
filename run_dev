@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -n "${CODESPACE_NAME+1}" ]; then
+  
+  base_url="https://${CODESPACE_NAME}-1313.app.github.dev/"
+  hugo server -b "${base_url}" --appendPort=false --noHTTPCache --cleanDestinationDir -D --ignoreCache
+else
+  hugo server --noHTTPCache --cleanDestinationDir -D --ignoreCache
+fi

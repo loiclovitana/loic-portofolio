@@ -11,7 +11,16 @@ theme = "adritian-free-hugo-theme"
   [[params.plugins.css]]
   URL = "css/rad-icons.css"
   [[params.plugins.css]]
+  URL = "css/experience.css"
+  [[params.plugins.css]]
+  URL = "css/contact.css"
+  [[params.plugins.css]]
+  URL = "css/education.css"
+  [[params.plugins.css]]
+  URL = "css/skills.css"
+  [[params.plugins.css]]
   URL = "css/custom.css"
+  
 
   # JS Plugins
   [[params.plugins.js]]
@@ -60,7 +69,7 @@ theme = "adritian-free-hugo-theme"
 
 [params]
 
-  sections = ["showcase", "education", "experience", "client_and_work", "contact"]
+  sections = ["showcase","skills_tag", "education", "experience", "client_and_work", "contact"]
 
   homepageExperienceCount = 999
 
@@ -93,3 +102,4 @@ theme = "adritian-free-hugo-theme"
 [taxonomies]
   skill = 'skills'
   category = 'categories'
+  preserveTaxonomyNames = true

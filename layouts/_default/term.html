@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{ partial "head.html" . }} {{ partial "head_custom.html" . }}
+</head>
+
+<body>
+  {{ partial "header.html" . }}
+  
+
+  <main class="list"> 
+    <section class="container section">
+        <h1>{{ .Title }}</h1>
+        All pages referencing {{.Title}}.
+        
+        
+        {{ range .Pages }}
+            <h4><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h4>
+        {{ end }}
+    </section>
+  </main>
+
+</body>
