@@ -102,3 +102,4 @@ theme = "adritian-free-hugo-theme"
 [taxonomies]
   skill = 'skills'
   category = 'categories'
+  preserveTaxonomyNames = true

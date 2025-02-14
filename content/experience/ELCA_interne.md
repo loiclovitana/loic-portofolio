@@ -12,7 +12,6 @@ skills:
     - Python
     - Git
     - Machine Learning
-    - AI
 draft: false
 title: "ELCA - Data science Intern"
 jobTitle: "Data science Intern"

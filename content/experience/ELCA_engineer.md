@@ -10,11 +10,10 @@ skills:
     - Microsoft Azure
     - Chatbot
     - Machine Learning
-    - Bitbucket
     - AI
     - SpringBoot
+    - Docker
     - REST API
-    - 
 draft: false
 title: "ELCA - Data engineer"
 jobTitle: "Data engineer"

@@ -2,7 +2,9 @@
     <div class="container">
         <div class="all-skills">
             {{ range $name, $taxonomy := .Site.Taxonomies.skills }}
-              <a href="{{ "/skills/" | relLangURL }}{{ $name | urlize }}"><button type="submit" class="skill-button">{{ $name }}</button></a>
+              <a href="{{ "/skills/" | relLangURL }}{{ $name | urlize }}">
+                <button type="submit" class="skill-button">{{ $name }}</button>
+            </a>
             {{ end }}
         </div>
           
