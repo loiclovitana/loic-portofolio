@@ -12,6 +12,9 @@ skills:
     - Machine Learning
     - Bitbucket
     - AI
+    - SpringBoot
+    - REST API
+    - 
 draft: false
 title: "ELCA - Data engineer"
 jobTitle: "Data engineer"
@@ -31,22 +34,31 @@ date: 2021-03-01
 
 ## Role
 
-After my master thesis, I decide to continue with Neosis where I will have 2 responsabilities:
+After my master thesis, I decide to continue with Neosis where I had 3 responsabilities:
 
 - One as a data scientist, where I initiate innovation projects and supervise interns.
-- Another as a data engineer, working on a migration project from Web@AVS to our systems. In this role I have more oppotunities to dive in the data and also acquire experience in project management, working with offshore, handling CI/CD, designing data model, ...
+- My main role, as a data engineer, working on a migration project from Web@AVS to our systems. In this role I have more oppotunities to dive in the data and also acquire experience in project management, working with offshore, handling CI/CD, designing data model, ...
+- Another as Backend software developer, working on a few tools more-or-less related to the integration project.
 
 ## Project
 
 ### Migration of iPension 1st
 
-Migration project of the main software in our solution. The migration requires to:
+Migration projects of insurance data from legacy system to be injected into our solution.
+I was involved in multiples projects for different clients and different sub-modules.
 
 - Buisness specifications
 - Mapping & transformations specification
 - Development of the data transformations (SSIS & SQL)
 - Design Reports & KPIs metrics for quality assessment
 - Iterative testing and collaboration with the client
+
+### Backend software development
+
+Development for our solution backend in Java Spring. Tools involved were: Docker, OKD, XJS, Hibernate.
+
+- Synchronization tool with legacy system
+- Interface with different external endpoint: REST API, Sedex
 
 ### AI model for reassessment of disability
 
