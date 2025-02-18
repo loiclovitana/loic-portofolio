@@ -82,7 +82,7 @@ experience:
     btnText: "Linkedin"
     URL: "https://www.linkedin.com/in/lo%C3%AFc-vandenberghe-693729166/"
   button2:
-    icon: "icon-github-fill"
+    icon: "fa-brands fa-github"
     btnText: "Github"
     URL: "https://github.vandenberghe.ch"
   button3:

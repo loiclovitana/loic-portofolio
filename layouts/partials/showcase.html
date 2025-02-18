@@ -11,18 +11,19 @@
         <p class="lead">
           {{ .Site.Data.homepage.showcase.description | safeHTML }}
         </p>
-        <a href="{{ .Site.Data.homepage.showcase.button.URL }}" class="socialButton">
-          <i class="{{ .Site.Data.homepage.showcase.button.icon }}"></i>
-          {{ .Site.Data.homepage.showcase.button.btnText }}
-        </a>
+        <div align="center">
+          <a href="{{ .Site.Data.homepage.showcase.button.URL }}" class="socialButton">
+            <i class="{{ .Site.Data.homepage.showcase.button.icon }}" style="font-size:xx-large"></i>
+            {{ .Site.Data.homepage.showcase.button.btnText }}
+          </a><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
-        {{ range .Site.Data.homepage.showcase.socialLinks }}
-        <a  href="{{ .URL | absURL }}" class="socialButton" target="_blank" rel="noopener noreferrer"
-          aria-label="{{ .icon }}">
-          <i class="{{ .icon }}"></i>{{ .btnText }}
-        </a>
-        {{ end }}
-
+          {{ range .Site.Data.homepage.showcase.socialLinks }}
+          <a  href="{{ .URL | absURL }}" class="socialButton" target="_blank" rel="noopener noreferrer"
+            aria-label="{{ .icon }}">
+            <i class="{{ .icon }}" style="font-size:xx-large"></i>{{ .btnText }}
+          </a><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          {{ end }}
+        </div>
       </div>
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 profile-image">
 
