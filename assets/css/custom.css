@@ -21,6 +21,9 @@ html body ::selection{
 .profile-image img{
     margin-top: 40px;
 }
+.picture-works img{
+    max-height: 800px;
+}
 
 .rad-showcase__bg img{
     margin-top: 0;

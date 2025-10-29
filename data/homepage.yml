@@ -96,16 +96,15 @@ client_and_work:
   enable: true
 
   works:
-    - title: "Chatbot assistant on compensation office website"
-      description: "Developement and integration of a chatbot in collaboration with Deeplink. Analysis
-of production data to improve performances"
+    - title: "Hockey Manager analysis"
+      description: "Give you an edge on Hockey Manager. Advice on sell and buy, automatically line up your team and more"
       button:
         icon: "icon-arrow-right"
-        btnText: "Try it yourself"
-        URL: "https://www.caisseavsvaud.ch/fr/Portrait/Bienvenue-a-la-CCVD/Bienvenue-a-la-CCVD.html"
+        btnText: "See project"
+        URL: "https://github.com/loiclovitana/Hockey_BI"
       image:
-        x: "images/works/chatbotCCVD.gif"
-        _2x: "images/works/chatbotCCVD.gif"
+        x: "images/works/hockeybi.png"
+        _2x: "images/works/hockeybi.png"
       is_even: false
 
     - title: "Master Thesis: Interest Forecast in Contribution payment"
