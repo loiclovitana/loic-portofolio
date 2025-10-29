@@ -8,7 +8,7 @@ showcase:
   title: "Hello, I’m Loïc"
   subtitle: "Data Scientist & Engineer"
   description: >
-    Based in Switzerland, and currently working at <a target='_blank' href='https://www.elca.ch/en'>ELCA Informatics SA</a> on the <a target='_blank' href='https://www.ipension.ch/'>iPension solution</a> with the ambition to "<i>introduce the digitalization on the swiss pension system and become the national standard</i>".<br><br>
+    Based in Switzerland, and currently working at <a target='_blank' href='https://anaxa.ch'>Anaxa</a> .<br><br>
     With a wide range of experiences—from data analysis and machine learning to software development and system architecture—I bring a holistic approach to solving complex problems. Whether I'm diving into data-driven insights or crafting robust systems, I always focus on the solution that best meets the needs for both the team and end-users.
     My passion lies in building efficient, scalable and modulable systems and fostering collaborative teams that continuously innovate and improve.
   image:
@@ -96,16 +96,15 @@ client_and_work:
   enable: true
 
   works:
-    - title: "Chatbot assistant on compensation office website"
-      description: "Developement and integration of a chatbot in collaboration with Deeplink. Analysis
-of production data to improve performances"
+    - title: "Hockey Manager analysis"
+      description: "Give you an edge on Hockey Manager. Advice on sell and buy, automatically line up your team and more"
       button:
         icon: "icon-arrow-right"
-        btnText: "Try it yourself"
-        URL: "https://www.caisseavsvaud.ch/fr/Portrait/Bienvenue-a-la-CCVD/Bienvenue-a-la-CCVD.html"
+        btnText: "See project"
+        URL: "https://github.com/loiclovitana/Hockey_BI"
       image:
-        x: "images/works/chatbotCCVD.gif"
-        _2x: "images/works/chatbotCCVD.gif"
+        x: "images/works/hockeybi.png"
+        _2x: "images/works/hockeybi.png"
       is_even: false
 
     - title: "Master Thesis: Interest Forecast in Contribution payment"
