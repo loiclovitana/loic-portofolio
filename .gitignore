@@ -1,7 +1,3 @@
 node_modules/
-public/
-ressources/
-resources/
-
-.hugo_build*
-*.swp
+dist/
+.direnv/

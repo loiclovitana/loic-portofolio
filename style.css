@@ -1,0 +1,202 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #222;
+  background: #fff;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: #0759a5;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: min(960px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+header {
+  border-bottom: 1px solid #ddd;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 4rem;
+  gap: 1rem;
+}
+
+.name {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-links,
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  padding-block: 4rem;
+  border-bottom: 1px solid #ddd;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  margin-bottom: .25rem;
+}
+
+.subtitle {
+  margin-top: .25rem;
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.meta {
+  color: #666;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.profile {
+  border-radius: 50%;
+}
+
+.grid,
+.timeline,
+.projects {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+article p {
+  margin-top: .25rem;
+}
+
+.timeline article {
+  padding-left: 1rem;
+  border-left: 3px solid #bbb;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) 3fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.project img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+form {
+  display: grid;
+  gap: .5rem;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  padding: .7rem;
+  font: inherit;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+
+button {
+  width: fit-content;
+  margin-top: .5rem;
+  color: white;
+  background: #0759a5;
+  border-color: #0759a5;
+  cursor: pointer;
+}
+
+footer {
+  padding-block: 2rem;
+}
+
+@media (max-width: 650px) {
+  nav {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-block: .75rem;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .profile {
+    width: min(300px, 75vw);
+  }
+
+  .two-columns,
+  .contact-layout,
+  .project {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding-block: 3rem;
+  }
+}
