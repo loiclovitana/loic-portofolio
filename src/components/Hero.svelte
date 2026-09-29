@@ -1,9 +1,66 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import Portrait from './Portrait.svelte';
   import { education, experience, sections } from '../content';
 
+  const roles = [
+    'Data Scientist',
+    'Software Engineer',
+    'Data Engineer',
+    'IT Consultant',
+    'Software architect',
+  ];
+  let displayedRole = $state(roles[0]);
+
+  onMount(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+    let roleIndex = 0;
+    let characterCount = roles[0].length;
+    let erasing = true;
+
+    function tick() {
+      if (erasing) {
+        characterCount--;
+        displayedRole = roles[roleIndex].slice(0, characterCount);
+        if (characterCount === 0) {
+          roleIndex = (roleIndex + 1) % roles.length;
+          erasing = false;
+          timeout = setTimeout(tick, 300);
+        } else {
+          timeout = setTimeout(tick, 55);
+        }
+      } else {
+        characterCount++;
+        displayedRole = roles[roleIndex].slice(0, characterCount);
+        if (characterCount === roles[roleIndex].length) {
+          erasing = true;
+          timeout = setTimeout(tick, 1800);
+        } else {
+          timeout = setTimeout(tick, 95);
+        }
+      }
+    }
+
+    function syncMotion() {
+      clearTimeout(timeout);
+      roleIndex = 0;
+      characterCount = roles[0].length;
+      erasing = true;
+      displayedRole = roles[0];
+      if (!reducedMotion.matches) timeout = setTimeout(tick, 1800);
+    }
+
+    reducedMotion.addEventListener('change', syncMotion);
+    syncMotion();
+
+    return () => {
+      clearTimeout(timeout);
+      reducedMotion.removeEventListener('change', syncMotion);
+    };
+  });
+
   const details = [
-    { label: 'Role', value: 'Data Scientist & Engineer' },
     { label: 'Location', value: 'Switzerland' },
     {
       label: 'Current',
@@ -32,6 +89,15 @@
       <div class="separator" aria-hidden="true">────────────────────────</div>
 
       <dl class="details">
+        <div class="detail">
+          <dt>Role<span aria-hidden="true">:</span></dt>
+          <dd>
+            <span class="sr-only">{roles.join(', ')}</span>
+            <span aria-hidden="true"
+              >{displayedRole}<span class="role-cursor"></span></span
+            >
+          </dd>
+        </div>
         {#each details as detail (detail.label)}
           <div class="detail">
             <dt>{detail.label}<span aria-hidden="true">:</span></dt>
@@ -103,6 +169,25 @@
     margin: 0;
     color: var(--color-text-secondary);
     overflow-wrap: anywhere;
+  }
+  .role-cursor {
+    display: inline-block;
+    width: 1ch;
+    height: 1.2em;
+    margin-left: 1px;
+    background: var(--color-accent);
+    vertical-align: -0.25em;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .role-cursor {
+      display: none;
+    }
   }
   .about {
     margin-top: 16px;
