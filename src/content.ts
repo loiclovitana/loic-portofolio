@@ -1,6 +1,9 @@
 import hockeyImage from '../assets/images/works/hockeybi.webp';
 import thesisImage from '../assets/images/works/thesis_graph.webp';
 import beersImage from '../assets/images/works/world_beer_visu.webp';
+import githubIcon from '../assets/icons/github.svg';
+import linkedinIcon from '../assets/icons/linkedin.svg';
+import mailIcon from '../assets/icons/mail.svg';
 
 export const sections = {
   about: { id: 'about', command: 'fastfetch' },
@@ -19,7 +22,6 @@ export const sections = {
     command: 'cat education.json',
     title: 'Where it started',
   },
-  contact: { id: 'contact', command: './say-hello' },
 } as const;
 
 export interface Project {
@@ -116,7 +118,32 @@ export const education = [
   },
 ];
 
+export const contactEmail = 'loic@vandenberghe.ch';
+
 export const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/loiclovitana' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/loic-vdb/' },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/loiclovitana',
+    icon: githubIcon,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/loic-vdb/',
+    icon: linkedinIcon,
+  },
+];
+
+export const contactLinks = [
+  {
+    label: 'Email',
+    value: contactEmail,
+    href: `mailto:${contactEmail}`,
+    icon: mailIcon,
+    external: false,
+  },
+  ...socialLinks.map((link) => ({
+    ...link,
+    value: link.href.replace(/^https?:\/\/(www\.)?/, ''),
+    external: true,
+  })),
 ];

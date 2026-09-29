@@ -32,12 +32,6 @@
           current = target.id;
         }
       }
-      if (
-        window.scrollY + window.innerHeight >=
-        document.documentElement.scrollHeight - 2
-      ) {
-        current = sections.contact.id;
-      }
       active = current;
     }
 

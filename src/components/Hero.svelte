@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import ContactIcon from './ContactIcon.svelte';
   import Portrait from './Portrait.svelte';
-  import { education, experience, sections } from '../content';
+  import { contactLinks, education, experience, sections } from '../content';
 
   const roles = [
     'Data Scientist',
@@ -70,9 +71,13 @@
       label: 'Education',
       value: `${education[0].degree} · ${education[0].school}`,
     },
-    { label: 'Focus', value: 'Data, automation & useful systems' },
+    { label: 'Focus', value: 'Data & automation' },
     { label: 'Values', value: 'Maintainable code & open conversations' },
-    { label: 'Interests', value: 'Experimenting & solving everyday problems' },
+    {
+      label: 'About',
+      value:
+        'Turning complex problems into simple, useful things. Occasionally spending hours automating a task that takes minutes.',
+    },
   ];
 </script>
 
@@ -104,11 +109,19 @@
             <dd>{detail.value}</dd>
           </div>
         {/each}
-        <div class="detail about">
-          <dt>About<span aria-hidden="true">:</span></dt>
-          <dd>
-            Turning complex problems into simple, useful things. Occasionally
-            spending hours automating a task that takes minutes.
+        <div class="detail">
+          <dt>Contact<span aria-hidden="true">:</span></dt>
+          <dd class="contact-links">
+            {#each contactLinks as detail (detail.label)}
+              <a
+                href={detail.href}
+                target={detail.external ? '_blank' : undefined}
+                rel={detail.external ? 'noreferrer' : undefined}
+              >
+                <ContactIcon src={detail.icon} />
+                {detail.value}
+              </a>
+            {/each}
           </dd>
         </div>
       </dl>
@@ -170,6 +183,16 @@
     color: var(--color-text-secondary);
     overflow-wrap: anywhere;
   }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  dd a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
   .role-cursor {
     display: inline-block;
     width: 1ch;
@@ -188,9 +211,6 @@
     .role-cursor {
       display: none;
     }
-  }
-  .about {
-    margin-top: 16px;
   }
   .color-bars {
     display: flex;

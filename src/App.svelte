@@ -1,14 +1,15 @@
 <script lang="ts">
   import Hero from './components/Hero.svelte';
+  import ContactIcon from './components/ContactIcon.svelte';
   import Header from './components/Header.svelte';
   import ProjectCard from './components/ProjectCard.svelte';
   import Section from './components/Section.svelte';
   import {
+    contactLinks,
     education,
     experience,
     projects,
     sections,
-    socialLinks,
   } from './content';
 
   const year = new Date().getFullYear();
@@ -87,58 +88,29 @@
         {/each}
       </div>
     </Section>
-
-    <section
-      class="contact"
-      id={sections.contact.id}
-      aria-labelledby="contact-title"
-      tabindex="-1"
-    >
-      <p class="prompt">
-        <span class="accent">$</span>
-        {sections.contact.command}
-      </p>
-      <p class="eyebrow">GREAT THINGS START WITH A CONVERSATION</p>
-      <h2 id="contact-title">
-        Have a good problem?<br />Let’s figure it out<span class="accent"
-          >.</span
-        >
-      </h2>
-      <p>A project, an idea, or just a hello. My inbox is open.</p>
-      <a class="email-link" href="mailto:loic@vandenberghe.ch"
-        >loic@vandenberghe.ch <span>↗</span></a
-      >
-      <div class="contact-bottom">
-        <div class="social-links">
-          {#each socialLinks as link (link.label)}
-            <a href={link.href} target="_blank" rel="noreferrer"
-              >{link.label} ↗</a
-            >
-          {/each}
-        </div>
-        <a href="#about">Back to top ↑</a>
-      </div>
-    </section>
   </main>
 
   <div class="statusbar">
-    <span><span class="status-dot"></span> ALL SYSTEMS CURIOUS</span>
-    <span
-      >UTF-8 <span class="status-divider">/</span> BUILT WITH INTENTION
-      <span class="status-divider">/</span>
-      <span class="accent">main*</span></span
-    >
+    <span>© {year} Loïc Vandenberghe All rights reserved</span>
+    <nav class="statusbar-contacts" aria-label="Contact links">
+      {#each contactLinks as link (link.label)}
+        <a
+          href={link.href}
+          target={link.external ? '_blank' : undefined}
+          rel={link.external ? 'noreferrer' : undefined}
+          aria-label={`${link.label}: ${link.value}`}
+          title={link.value}
+        >
+          <ContactIcon src={link.icon} />
+          <span class="contact-label">{link.label}</span>
+        </a>
+      {/each}
+    </nav>
   </div>
 </div>
 
-<footer class="shell footer">
-  <span>© {year} Loïc Vandenberghe</span>
-  <span>Less complexity. More possibility.<span class="accent">_</span></span>
-</footer>
-
 <style>
   .statusbar,
-  .footer,
   .timeline-date,
   .tag,
   .timeline-index {
@@ -249,82 +221,33 @@
     margin-top: 20px;
     font-size: 12px;
   }
-  .contact {
-    padding-block: 45px 30px;
-    border-bottom: 0;
-    background: radial-gradient(
-      ellipse at 100% 100%,
-      var(--color-accent-subtle),
-      transparent 70%
-    );
-  }
-  .contact > .eyebrow {
-    color: var(--color-muted);
-    font-size: 8px;
-    margin-bottom: 20px;
-  }
-  .contact h2 {
-    font-size: clamp(27px, 3vw, 39px);
-    line-height: 1.25;
-  }
-  .contact > p:not(.prompt, .eyebrow) {
-    font-size: 13px;
-    color: var(--color-muted);
-    margin-top: 16px;
-  }
-  .email-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 34px;
-    color: var(--color-accent);
-    font-family: var(--font-mono);
-    font-size: clamp(12px, 1.5vw, 19px);
-    margin-top: 25px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--color-accent-line);
-  }
-  .email-link:hover {
-    border-color: var(--color-accent);
-  }
-  .contact-bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-top: 50px;
-    font: 10px var(--font-mono);
-    color: var(--color-muted);
-  }
-  .social-links {
-    display: flex;
-    gap: 25px;
-  }
+
   .statusbar {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
     gap: 20px;
     padding: 10px 17px;
     border-top: 1px solid var(--color-border);
-    color: var(--color-muted);
-    font-size: 8px;
+    color: var(--color-text-secondary);
+    font-size: 13px;
     letter-spacing: 0.025em;
   }
-  .statusbar .status-dot {
-    width: 5px;
-    height: 5px;
-    margin-right: 6px;
-  }
-  .status-divider {
-    color: var(--color-muted);
-    margin-inline: 12px;
-  }
-  .footer {
+  .statusbar-contacts {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding-block: 25px 35px;
-    font-size: 9px;
-    color: var(--color-muted);
+    align-items: center;
+    gap: 18px;
+    margin-left: auto;
   }
+  .statusbar-contacts a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 32px;
+    white-space: nowrap;
+  }
+
   .skip-link {
     position: fixed;
     top: 10px;
@@ -385,44 +308,21 @@
     .education-grid article {
       padding: 22px;
     }
-    .contact h2 {
-      font-size: clamp(25px, 6.7vw, 35px);
-    }
-    .contact > .eyebrow {
-      font-size: 6px;
-      letter-spacing: 0.06em;
-    }
-    .email-link {
-      font-size: 13px;
-      gap: 20px;
-    }
-    .contact-bottom {
-      font-size: 9px;
-      margin-top: 35px;
-    }
-    .social-links {
-      gap: 18px;
-    }
     .statusbar {
-      font-size: 6px;
-      padding: 10px;
-      gap: 12px;
+      font-size: 12px;
+      padding: 8px 10px;
+      gap: 8px 12px;
     }
-    .statusbar > span:last-child {
-      font-size: 0;
+    .statusbar-contacts {
+      gap: 8px;
     }
-    .statusbar > span:last-child > .accent {
-      font-size: 7px;
+    .statusbar-contacts a {
+      justify-content: center;
+      min-width: 36px;
+      min-height: 36px;
     }
-    .status-divider {
-      margin-inline: 0;
-    }
-    .footer {
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      font-size: 8px;
-      padding-block: 20px;
+    .contact-label {
+      display: none;
     }
   }
 </style>
