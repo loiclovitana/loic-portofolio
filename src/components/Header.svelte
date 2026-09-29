@@ -71,7 +71,7 @@
 
 <header class="tmux-bar" bind:this={header}>
   <a class="session" href="#about" aria-label="Loïc Vandenberghe — home">
-    Loic Portofolio
+    Loïc Portofolio
   </a>
 
   <nav aria-label="Main navigation" bind:this={navigation}>
@@ -109,6 +109,7 @@
     min-height: 30px;
     padding: 3px 0;
     border-radius: 8px 8px 0 0;
+    overflow: clip;
     background: var(--color-background);
     font: 16px/1 var(--font-mono);
   }

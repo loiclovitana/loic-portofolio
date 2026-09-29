@@ -52,17 +52,6 @@
           <span style:background={`var(${color})`}></span>
         {/each}
       </div>
-
-      <nav class="actions" aria-label="Explore my portfolio">
-        <a href="#projects"
-          ><span aria-hidden="true">[</span> Explore my work
-          <span aria-hidden="true">↗ ]</span></a
-        >
-        <a href="#contact"
-          ><span aria-hidden="true">[</span> Let’s talk
-          <span aria-hidden="true">↗ ]</span></a
-        >
-      </nav>
     </div>
   </div>
 </section>
@@ -127,19 +116,6 @@
   .color-bars span {
     flex: 1;
   }
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 24px;
-    margin-top: 22px;
-    font-size: 11px;
-  }
-  .actions a {
-    padding-block: 5px;
-  }
-  .actions span {
-    color: var(--color-accent);
-  }
   @media (max-width: 1100px) {
     .fetch-output {
       gap: 30px;
@@ -171,10 +147,6 @@
     }
     h1 {
       font-size: 22px;
-    }
-    .actions {
-      gap: 8px 20px;
-      font-size: 10px;
     }
   }
 </style>
