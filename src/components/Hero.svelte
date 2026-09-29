@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import ContactIcon from './ContactIcon.svelte';
   import Portrait from './Portrait.svelte';
+  import SectionHeading from './SectionHeading.svelte';
   import { contactLinks, education, experience, sections } from '../content';
 
   const roles = [
@@ -82,7 +83,12 @@
 </script>
 
 <section id={sections.about.id} aria-labelledby="about-title" tabindex="-1">
-  <p class="prompt"><span class="accent">$</span> {sections.about.command}</p>
+  <SectionHeading
+    title={sections.about.title}
+    icon={sections.about.icon}
+    command={sections.about.command}
+    tag="p"
+  />
 
   <div class="fetch-output">
     <div class="profile">
@@ -137,6 +143,7 @@
 
 <style>
   .fetch-output {
+    margin-top: 30px;
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
     align-items: center;

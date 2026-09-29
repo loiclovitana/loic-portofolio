@@ -24,7 +24,6 @@
 
     <Section
       {...sections.projects}
-      label={`${String(projects.length).padStart(2, '0')} PROJECTS`}
       intro="A little data science. A little engineering. A lot of curiosity."
     >
       <div class="projects">
@@ -36,7 +35,6 @@
 
     <Section
       {...sections.experience}
-      label="EXPERIENCE"
       intro="From understanding the business to building the system. Five years of solving problems with people and data."
     >
       <div class="timeline">
@@ -67,7 +65,7 @@
       </div>
     </Section>
 
-    <Section {...sections.education} label="EDUCATION">
+    <Section {...sections.education}>
       <div class="education-grid">
         {#each education as item, index (item.school)}
           <article>

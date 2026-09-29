@@ -4,23 +4,30 @@ import beersImage from '../assets/images/works/world_beer_visu.webp';
 import githubIcon from '../assets/icons/github.svg';
 import linkedinIcon from '../assets/icons/linkedin.svg';
 import mailIcon from '../assets/icons/mail.svg';
+import UserRound from '@lucide/svelte/icons/user-round';
+import FolderCode from '@lucide/svelte/icons/folder-code';
+import BriefcaseBusiness from '@lucide/svelte/icons/briefcase-business';
+import GraduationCap from '@lucide/svelte/icons/graduation-cap';
 
 export const sections = {
-  about: { id: 'about', command: 'fastfetch' },
+  about: { id: 'about', command: 'fastfetch', title: 'About', icon: UserRound },
   projects: {
     id: 'projects',
     command: 'ls ./projects',
-    title: 'Things I’ve built',
+    title: 'Projects',
+    icon: FolderCode,
   },
   experience: {
     id: 'experience',
     command: 'cat experience.log',
-    title: 'The journey so far',
+    title: 'Experience',
+    icon: BriefcaseBusiness,
   },
   education: {
     id: 'education',
     command: 'cat education.json',
-    title: 'Where it started',
+    title: 'Education',
+    icon: GraduationCap,
   },
 } as const;
 
