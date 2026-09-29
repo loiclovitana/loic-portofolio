@@ -192,7 +192,7 @@
     .tmux-bar {
       flex-wrap: wrap;
       gap: 3px 0;
-      font-size: 12px;
+      font-size: 14px;
     }
     nav {
       order: 1;

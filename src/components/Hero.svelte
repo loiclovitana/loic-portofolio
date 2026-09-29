@@ -157,12 +157,12 @@
   }
   .fetch-info {
     min-width: 0;
-    font-size: 12px;
-    line-height: 1.85;
+    font-size: 16px;
+    line-height: 1.7;
   }
   h1 {
     color: var(--color-accent);
-    font-size: clamp(19px, 2vw, 26px);
+    font-size: clamp(25px, 2.6vw, 32px);
     line-height: 1.4;
     letter-spacing: -0.04em;
   }
@@ -177,7 +177,7 @@
   }
   .detail {
     display: grid;
-    grid-template-columns: 12ch minmax(0, 1fr);
+    grid-template-columns: 10ch minmax(0, 1fr);
     gap: 12px;
     margin-block: 4px;
   }
@@ -232,21 +232,8 @@
     .fetch-output {
       gap: 30px;
     }
-    .fetch-info {
-      font-size: 11px;
-    }
   }
   @media (max-width: 800px) {
-    .fetch-output {
-      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-      gap: 24px;
-    }
-    .detail {
-      grid-template-columns: 10ch minmax(0, 1fr);
-      gap: 8px;
-    }
-  }
-  @media (max-width: 640px) {
     .fetch-output {
       grid-template-columns: minmax(0, 1fr);
       gap: 30px;
@@ -254,11 +241,14 @@
     .profile {
       max-width: 250px;
     }
-    .fetch-info {
-      font-size: 11px;
+  }
+  @media (max-width: 640px) {
+    .detail {
+      grid-template-columns: 8ch minmax(0, 1fr);
+      gap: 8px;
     }
     h1 {
-      font-size: 22px;
+      font-size: 26px;
     }
   }
 </style>

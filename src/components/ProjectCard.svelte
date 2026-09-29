@@ -103,7 +103,7 @@
     top: 10px;
     left: 10px;
     padding: 3px 6px;
-    font: 8px var(--font-mono);
+    font: 13px var(--font-mono);
     color: var(--color-text);
     background: var(--color-image-label);
     border: 1px solid var(--color-accent-line);
@@ -129,21 +129,21 @@
     flex: 1;
   }
   .project-body .eyebrow {
-    font-size: 7px;
+    font-size: 14px;
     letter-spacing: 0.03em;
   }
   .project h3 {
     margin-top: 12px;
   }
   .project-body > p:not(.eyebrow) {
-    font-size: 12px;
+    font-size: 16px;
     color: var(--color-muted);
     line-height: 1.75;
     margin: 12px 0 22px;
   }
   .project .text-link,
   .project-note {
-    font-size: 9px;
+    font-size: 14px;
     margin-top: auto;
   }
   .project .text-link {
@@ -157,9 +157,6 @@
     .project-body {
       padding: 15px 12px;
     }
-    .project h3 {
-      font-size: 15px;
-    }
   }
   @media (max-width: 580px) {
     .project-image {
@@ -167,16 +164,6 @@
     }
     .project-body {
       padding: 20px;
-    }
-    .project-body .eyebrow {
-      font-size: 8px;
-    }
-    .project h3 {
-      font-size: 20px;
-    }
-    .project .text-link,
-    .project-note {
-      font-size: 10px;
     }
   }
 </style>

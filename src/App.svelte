@@ -144,11 +144,11 @@
   }
   .timeline-date {
     color: var(--color-muted);
-    font-size: 10px;
+    font-size: 14px;
   }
   .tag {
     display: table;
-    font-size: 7px;
+    font-size: 12px;
     color: var(--color-accent);
     padding: 1px 5px;
     margin-top: 8px;
@@ -156,27 +156,28 @@
     border-radius: 2px;
   }
   .timeline h3 {
-    font-size: 17px;
+    font-size: 20px;
     margin-bottom: 8px;
   }
   .timeline article > div > p {
-    font-size: 12px;
+    font-size: 16px;
     color: var(--color-text-secondary);
   }
   .job-location {
     display: block;
-    font-size: 10px;
+    font-size: 14px;
     color: var(--color-muted);
     margin-top: 3px;
   }
   .timeline article > div > .job-description {
     margin-top: 12px;
-    font-size: 12px;
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--color-muted);
-    max-width: 400px;
+    max-width: 600px;
   }
   .timeline-index {
-    font-size: 10px;
+    font-size: 13px;
     color: var(--color-muted);
   }
   .education-grid {
@@ -194,7 +195,7 @@
     display: flex;
     justify-content: space-between;
     color: var(--color-muted);
-    font: 10px var(--font-mono);
+    font: 14px var(--font-mono);
     margin-bottom: 25px;
   }
   .education-grid h3 {
@@ -211,13 +212,13 @@
   }
   .education-grid p {
     color: var(--color-muted);
-    font-size: 11px;
+    font-size: 16px;
     margin-top: 8px;
   }
   .education-grid .degree {
     color: var(--color-text-secondary);
     margin-top: 20px;
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .statusbar {
@@ -229,7 +230,7 @@
     padding: 10px 17px;
     border-top: 1px solid var(--color-border);
     color: var(--color-text-secondary);
-    font-size: 13px;
+    font-size: 14px;
     letter-spacing: 0.025em;
   }
   .statusbar-contacts {
@@ -268,6 +269,11 @@
       gap: 15px;
     }
   }
+  @media (max-width: 900px) {
+    .projects {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   @media (max-width: 580px) {
     .terminal {
       margin-top: 12px;
@@ -287,7 +293,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 9px;
+      font-size: 14px;
     }
     .tag {
       margin: 0;
@@ -307,7 +313,7 @@
       padding: 22px;
     }
     .statusbar {
-      font-size: 12px;
+      font-size: 14px;
       padding: 8px 10px;
       gap: 8px 12px;
     }

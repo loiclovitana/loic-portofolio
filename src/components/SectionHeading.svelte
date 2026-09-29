@@ -28,7 +28,7 @@
 
 <style>
   .section-prompt {
-    --segment-height: 28px;
+    --segment-height: 34px;
     --tip: 9px;
     display: flex;
     flex-wrap: wrap;
@@ -43,7 +43,7 @@
     align-items: center;
     flex-shrink: 0;
     margin: 0;
-    font: 600 16px / 1 var(--font-mono);
+    font: 600 18px / 1 var(--font-mono);
     letter-spacing: 0;
   }
   .icon-segment,
@@ -78,19 +78,19 @@
   }
   .command {
     color: var(--color-text-secondary);
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.4;
     white-space: nowrap;
   }
   @media (max-width: 580px) {
     .section-prompt {
-      --segment-height: 26px;
+      --segment-height: 32px;
     }
     .prompt-title {
-      font-size: 14px;
+      font-size: 17px;
     }
     .command {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 </style>

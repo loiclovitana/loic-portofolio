@@ -4,6 +4,7 @@
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --font-sans: 'DM Sans', system-ui, sans-serif;
   font-family: var(--font-sans);
+  font-size: 16px;
   color: var(--color-text);
   background: var(--color-background);
   font-synthesis: none;
@@ -92,7 +93,7 @@ h3 {
   font-family: var(--font-mono);
 }
 .eyebrow {
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.08em;
 }
@@ -122,7 +123,7 @@ h2 {
   letter-spacing: -0.035em;
 }
 h3 {
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: -0.02em;
 }
 

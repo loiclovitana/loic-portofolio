@@ -28,14 +28,10 @@
 
 <style>
   .section-intro {
-    font-size: 13px;
+    font-size: 17px;
+    line-height: 1.6;
     color: var(--color-muted);
     margin-top: 14px;
     max-width: 550px;
-  }
-  @media (max-width: 580px) {
-    .section-intro {
-      font-size: 12px;
-    }
   }
 </style>
