@@ -24,7 +24,6 @@
 
     <Section
       {...sections.projects}
-      intro="A little data science. A little engineering. A lot of curiosity."
     >
       <div class="projects">
         {#each projects as project, index (project.id)}
@@ -35,7 +34,6 @@
 
     <Section
       {...sections.experience}
-      intro="From understanding the business to building the system. Five years of solving problems with people and data."
     >
       <div class="timeline">
         {#each experience as job, index (job.title)}
