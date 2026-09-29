@@ -1,15 +1,44 @@
-# Loïc Vandenberghe — static portfolio
+# Loïc Vandenberghe — portfolio
 
-A single-page portfolio built with plain HTML, CSS, and JavaScript. Vite is used only as the development server and production bundler.
+A single-page portfolio built with Svelte 5, TypeScript, and Vite. The terminal-inspired layout includes an ASCII portrait and section navigation.
 
 ## Development
 
+Use Node.js 22.12+ (or enter the included Nix environment):
+
 ```sh
 nix develop path:.
-npm install
+npm ci
 npm run dev
 ```
 
-Then open the URL printed by Vite (normally <http://localhost:5173>).
+Open the URL printed by Vite, normally <http://localhost:5173>.
 
-Create a production build with `npm run build`.
+```sh
+npm run check         # TypeScript, Svelte, and accessibility diagnostics
+npm run format:check  # Consistent formatting
+npm run build        # Production files in dist/
+npm run preview      # Serve the production build locally
+```
+
+Run `npm run format` to format the source.
+
+## Structure
+
+- `src/App.svelte` composes the page and renders the experience, education, and contact sections.
+- `src/components/` contains `Header`, `Hero`, `Portrait`, `Section`, and `ProjectCard`. Each owns its local styles.
+- `src/content.ts` holds section commands, projects, experience, education, and social links. The navigation and sections share the same identifiers.
+- `src/styles/palette.css` is the single source for interface colors. Eight base colors define the theme; hover colors, borders, overlays, and shadows derive from them using CSS variables and `color-mix()`. The browser theme color also reads from this palette.
+- `src/styles/global.css` defines shared typography, layout primitives, and accessibility styles.
+- `src/profil_ascii.txt` supplies the portrait. Project images are imported from `assets/images/works/` so Vite generates versioned asset URLs.
+- `public/` contains the favicon and custom-domain `CNAME`, copied directly into the build.
+
+## Interactions
+
+The sticky tmux-style header links to each section, with rounded segment separators and a highlighted window that follows the current section. On narrow screens, the navigation scrolls horizontally.
+
+The portrait scan line pauses when offscreen or in a background tab, includes a manual pause control, and respects reduced-motion preferences. Observers and event listeners are cleaned up when the component unmounts.
+
+## Deployment
+
+Deploy the contents of `dist/` to a static host after `npm run build`. The app uses client-side Svelte rendering and hash navigation, so no server runtime or route rewrites are needed. JavaScript is required to render the page. For GitHub Pages, publish the built output rather than the source directory; `dist/CNAME` preserves the existing custom domain.

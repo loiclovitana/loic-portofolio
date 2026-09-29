@@ -1,0 +1,61 @@
+/* All UI colors originate here. Translucent effects derive from this palette. */
+:root {
+  color-scheme: dark;
+
+  --color-background: #101310;
+  --color-surface: #151915;
+  --color-surface-raised: #1a201a;
+  --color-border: #2b332b;
+  --color-text: #e8ece3;
+  --color-muted: #9ba697;
+  --color-accent: #b2ed83;
+  --color-shadow: #000000;
+
+  --color-on-accent: var(--color-background);
+  --color-accent-hover: color-mix(
+    in srgb,
+    var(--color-accent) 75%,
+    var(--color-text)
+  );
+  --color-border-strong: color-mix(
+    in srgb,
+    var(--color-border) 80%,
+    var(--color-muted)
+  );
+  --color-border-hover: color-mix(
+    in srgb,
+    var(--color-border) 55%,
+    var(--color-accent)
+  );
+  --color-text-secondary: color-mix(
+    in srgb,
+    var(--color-text) 60%,
+    var(--color-muted)
+  );
+
+  --color-accent-subtle: color-mix(
+    in srgb,
+    var(--color-accent) 6%,
+    transparent
+  );
+  --color-accent-glow: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  --color-accent-soft: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  --color-accent-line: color-mix(in srgb, var(--color-accent) 25%, transparent);
+  --color-portrait: color-mix(in srgb, var(--color-accent) 72%, transparent);
+  --color-image-label: color-mix(
+    in srgb,
+    var(--color-background) 88%,
+    transparent
+  );
+  --color-backdrop: color-mix(
+    in srgb,
+    var(--color-background) 75%,
+    transparent
+  );
+  --color-shadow-soft: color-mix(in srgb, var(--color-shadow) 27%, transparent);
+  --color-shadow-strong: color-mix(
+    in srgb,
+    var(--color-shadow) 60%,
+    transparent
+  );
+}
