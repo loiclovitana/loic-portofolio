@@ -12,7 +12,7 @@
       aria-hidden="true">{portrait.trim()}</pre>
     <img
       hidden={view !== 'photo'}
-      src="/LV.png"
+      src="/LV.webp"
       alt="Portrait of Loïc Vandenberghe"
       width="976"
       height="1104"
