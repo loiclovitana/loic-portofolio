@@ -19,14 +19,11 @@ html {
 }
 body {
   margin: 0;
-  background-image: radial-gradient(
-    var(--color-accent-subtle) 1px,
-    transparent 1px
-  );
-  background-size: 24px 24px;
+  background-image: var(--page-background-image);
+  background-size: var(--page-background-size);
 }
 ::selection {
-  color: var(--color-background);
+  color: var(--color-on-accent);
   background: var(--color-accent);
 }
 a {

@@ -251,7 +251,7 @@
     left: 10px;
     padding: 12px;
     background: var(--color-accent);
-    color: var(--color-background);
+    color: var(--color-on-accent);
     z-index: 10;
     transform: translateY(-150%);
   }

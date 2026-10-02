@@ -1,17 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { sections } from '../content';
+  import ThemeSwitcher from './ThemeSwitcher.svelte';
 
   const windows = Object.values(sections);
   let active = $state<string>(sections.about.id);
   let header: HTMLElement;
   let navigation: HTMLElement;
   let now = $state(new Date());
-  const dateFormat = new Intl.DateTimeFormat('de-CH', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  });
   const timeFormat = new Intl.DateTimeFormat('en-GB', {
     hour: '2-digit',
     minute: '2-digit',
@@ -86,10 +82,12 @@
     {/each}
   </nav>
 
-  <time class="session-status" datetime={now.toISOString()}>
-    <span class="session-date">{dateFormat.format(now)}</span>
-    <span class="session-time">{timeFormat.format(now)}</span>
-  </time>
+  <div class="session-status">
+    <ThemeSwitcher compact />
+    <time class="session-time" datetime={now.toISOString()}
+      >{timeFormat.format(now)}</time
+    >
+  </div>
 </header>
 
 <style>
@@ -176,9 +174,6 @@
     color: var(--color-muted);
     font-variant-numeric: tabular-nums;
   }
-  .session-date {
-    padding: 0 9px 0 12px;
-  }
   .session-time {
     display: flex;
     align-items: center;
@@ -190,13 +185,22 @@
   }
   @media (max-width: 640px) {
     .tmux-bar {
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 3px 0;
       font-size: 14px;
     }
+    .session {
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 24px;
+    }
     nav {
-      order: 1;
-      flex-basis: 100%;
+      grid-column: 1 / -1;
+      grid-row: 2;
     }
   }
 </style>

@@ -3,6 +3,7 @@
   import ContactIcon from './ContactIcon.svelte';
   import Portrait from './Portrait.svelte';
   import SectionHeading from './SectionHeading.svelte';
+  import ThemeSwitcher from './ThemeSwitcher.svelte';
   import { contactLinks, education, experience, sections } from '../content';
 
   const roles = [
@@ -72,7 +73,7 @@
       label: 'Education',
       value: `${education[0].degree} · ${education[0].school}`,
     },
-    {label: 'Languages', value:'French, English'},
+    { label: 'Languages', value: 'French, English' },
     { label: 'Focus', value: 'Data & automation' },
     { label: 'Values', value: 'Maintainable code & open conversations' },
     {
@@ -133,10 +134,13 @@
         </div>
       </dl>
 
-      <div class="color-bars" aria-hidden="true">
-        {#each ['--color-background', '--color-border', '--color-muted', '--color-text-secondary', '--color-portrait', '--color-accent', '--color-accent-hover', '--color-text'] as color}
-          <span style:background={`var(${color})`}></span>
-        {/each}
+      <div class="palette-controls">
+        <div class="color-bars" aria-hidden="true">
+          {#each ['--color-background', '--color-border', '--color-muted', '--color-text-secondary', '--color-portrait', '--color-accent', '--color-accent-hover', '--color-text'] as color}
+            <span style:background={`var(${color})`}></span>
+          {/each}
+        </div>
+        <ThemeSwitcher />
       </div>
     </div>
   </div>
@@ -220,11 +224,17 @@
       display: none;
     }
   }
+  .palette-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 23px;
+  }
   .color-bars {
     display: flex;
     width: 192px;
     height: 18px;
-    margin-top: 23px;
   }
   .color-bars span {
     flex: 1;

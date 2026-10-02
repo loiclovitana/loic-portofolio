@@ -2,16 +2,24 @@
 :root {
   color-scheme: dark;
 
-  --color-background: #101310;
-  --color-surface: #151915;
-  --color-surface-raised: #1a201a;
-  --color-border: #2b332b;
-  --color-text: #e8ece3;
-  --color-muted: #9ba697;
-  --color-accent: #b2ed83;
-  --color-shadow: #000000;
+  color-scheme: dark;
+  --color-background: rgba(30, 7, 10, 0.85);
+  --color-surface: #260d12;
+  --color-surface-raised: #34151b;
+  --color-border: #67202b;
+  --color-text: #f1e7e4;
+  --color-muted: #b89c9d;
+  --color-accent: #c8102e;
+  --color-on-accent: #1f070b;
+  --color-shadow: #0d0204;
 
-  --color-on-accent: var(--color-background);
+  /* Themes can override these independently when background artwork is added. */
+  --page-background-image: radial-gradient(
+    var(--color-accent-subtle) 1px,
+    transparent 1px
+  );
+  --page-background-size: 24px 24px;
+
   --color-accent-hover: color-mix(
     in srgb,
     var(--color-accent) 75%,
@@ -58,4 +66,76 @@
     var(--color-shadow) 60%,
     transparent
   );
+}
+
+:root[data-theme='garnet'] {
+  color-scheme: dark;
+  --color-background: rgb(0, 0, 0);
+  --color-surface: #260d12;
+  --color-surface-raised: #34151b;
+  --color-border: #67202b;
+  --color-text: #f1e7e4;
+  --color-muted: #b89c9d;
+  --color-accent: #c8102e;
+  --color-on-accent: #1f070b;
+  --color-shadow: #0d0204;
+}
+
+:root[data-theme='garnet'] ::selection {
+  color: #1f070b;
+  background: #f2415b;
+}
+
+:root[data-theme='matrix'] {
+
+  color-scheme: dark;
+  --color-background: #101310;
+  --color-surface: #151915;
+  --color-surface-raised: #1a201a;
+  --color-border: #2b332b;
+  --color-text: #e8ece3;
+  --color-muted: #9ba697;
+  --color-on-accent: #101310;
+  --color-accent: #b2ed83;
+  --color-shadow: #000000;
+}
+
+:root[data-theme='catppuccin-dark'] {
+  color-scheme: dark;
+  --color-background: #181825;
+  --color-surface: #1e1e2e;
+  --color-surface-raised: #313244;
+  --color-border: #45475a;
+  --color-text: #cdd6f4;
+  --color-muted: #a6adc8;
+  --color-accent: #cba6f7;
+  --color-on-accent: #1e1e2e;
+  --color-shadow: #11111b;
+}
+
+:root[data-theme='catppuccin-light'] {
+  color-scheme: light;
+  --color-background: #e6e9ef;
+  --color-surface: #eff1f5;
+  --color-surface-raised: #dce0e8;
+  --color-border: #bcc0cc;
+  --color-text: #4c4f69;
+  --color-muted: #6c6f85;
+  --color-accent: #8839ef;
+  --color-on-accent: #eff1f5;
+  --color-shadow: #4c4f69;
+  --color-portrait: #2c134c;
+}
+
+:root[data-theme='whitesur'] {
+  color-scheme: light;
+  --color-background: #eceef2;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f5f5f7;
+  --color-border: #d2d2d7;
+  --color-text: #1d1d1f;
+  --color-muted: #6e6e73;
+  --color-accent: #0066cc;
+  --color-on-accent: #ffffff;
+  --color-shadow: #1d1d1f;
 }
