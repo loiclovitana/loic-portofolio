@@ -87,7 +87,6 @@
 }
 
 :root[data-theme='matrix'] {
-
   color-scheme: dark;
   --color-background: #101310;
   --color-surface: #151915;

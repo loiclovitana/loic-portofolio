@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Project } from '../content';
 
-  let { project, index }: { project: Project; index: number } = $props();
+  let { project }: { project: Project } = $props();
 </script>
 
 {#snippet preview()}
@@ -12,9 +12,7 @@
     width="640"
     height="400"
   />
-  <span class="image-index"
-    >{String(index + 1).padStart(2, '0')} / {project.id}</span
-  >
+  <span class="image-label">{project.id}</span>
   {#if project.link}<span class="image-arrow" aria-hidden="true">↗</span>{/if}
 {/snippet}
 
@@ -98,7 +96,7 @@
     opacity: 1;
     transform: scale(1.04);
   }
-  .image-index {
+  .image-label {
     position: absolute;
     top: 10px;
     left: 10px;

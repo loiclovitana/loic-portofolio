@@ -26,7 +26,7 @@
       onclick={() => (view = view === 'ascii' ? 'photo' : 'ascii')}
     >
       {#if view === 'ascii'}
-        <Image size={19}/>
+        <Image size={19} />
       {:else}
         <Type size={19} />
       {/if}

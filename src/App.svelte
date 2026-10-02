@@ -22,26 +22,19 @@
   <main>
     <Hero />
 
-    <Section
-      {...sections.projects}
-    >
+    <Section {...sections.projects}>
       <div class="projects">
-        {#each projects as project, index (project.id)}
-          <ProjectCard {project} {index} />
+        {#each projects as project (project.id)}
+          <ProjectCard {project} />
         {/each}
       </div>
     </Section>
 
-    <Section
-      {...sections.experience}
-    >
+    <Section {...sections.experience}>
       <div class="timeline">
-        {#each experience as job, index (job.title)}
+        {#each experience as job (job.title)}
           <article>
-            <p class="timeline-date">
-              {job.date}{#if job.latest}<span class="tag">LATEST</span>{/if}
-            </p>
-            <div>
+            <div class="job-details">
               <h3>{job.title}</h3>
               <p>
                 {#if job.href}<a
@@ -49,15 +42,16 @@
                     target="_blank"
                     rel="noreferrer">{job.company} ↗</a
                   >{:else}{job.company}{/if}
-                <span class="job-location">{job.location}</span>
               </p>
               {#if job.description}<p class="job-description">
                   {job.description}
                 </p>{/if}
             </div>
-            <span class="timeline-index" aria-hidden="true"
-              >{String(experience.length - index).padStart(2, '0')}</span
-            >
+            <div class="job-meta">
+              <p class="timeline-date">{job.date}</p>
+              <p class="job-location">{job.location}</p>
+              {#if job.latest}<span class="tag">LATEST</span>{/if}
+            </div>
           </article>
         {/each}
       </div>
@@ -65,19 +59,16 @@
 
     <Section {...sections.education}>
       <div class="education-grid">
-        {#each education as item, index (item.school)}
+        {#each education as item (item.school)}
           <article>
             <div class="education-top">
+              <h3>
+                <a href={item.href} target="_blank" rel="noreferrer"
+                  >{item.school} <span>↗</span></a
+                >
+              </h3>
               <span class="eyebrow">{item.date}</span>
-              <span class="accent" aria-hidden="true"
-                >[{String(index + 1).padStart(2, '0')}]</span
-              >
             </div>
-            <h3>
-              <a href={item.href} target="_blank" rel="noreferrer"
-                >{item.school} <span>↗</span></a
-              >
-            </h3>
             <p>{item.name}</p>
             <p class="degree">{item.degree}</p>
           </article>
@@ -108,8 +99,7 @@
 <style>
   .statusbar,
   .timeline-date,
-  .tag,
-  .timeline-index {
+  .tag {
     font-family: var(--font-mono);
   }
   .terminal {
@@ -131,7 +121,7 @@
   }
   .timeline article {
     display: grid;
-    grid-template-columns: 160px 1fr 20px;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 20px;
     padding: 27px 0;
     border-bottom: 1px solid var(--color-border);
@@ -139,6 +129,9 @@
   .timeline article:last-child {
     border-bottom: 0;
     padding-bottom: 0;
+  }
+  .job-meta {
+    text-align: right;
   }
   .timeline-date {
     color: var(--color-muted);
@@ -149,7 +142,7 @@
     font-size: 12px;
     color: var(--color-accent);
     padding: 1px 5px;
-    margin-top: 8px;
+    margin: 8px 0 0 auto;
     border: 1px solid var(--color-accent-soft);
     border-radius: 2px;
   }
@@ -157,7 +150,7 @@
     font-size: 20px;
     margin-bottom: 8px;
   }
-  .timeline article > div > p {
+  .job-details > p {
     font-size: 16px;
     color: var(--color-text-secondary);
   }
@@ -167,16 +160,12 @@
     color: var(--color-muted);
     margin-top: 3px;
   }
-  .timeline article > div > .job-description {
+  .job-details > .job-description {
     margin-top: 12px;
     font-size: 16px;
     line-height: 1.6;
     color: var(--color-muted);
     max-width: 600px;
-  }
-  .timeline-index {
-    font-size: 13px;
-    color: var(--color-muted);
   }
   .education-grid {
     display: grid;
@@ -192,17 +181,23 @@
   .education-top {
     display: flex;
     justify-content: space-between;
-    color: var(--color-muted);
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    color: var(--color-text);
     font: 14px var(--font-mono);
-    margin-bottom: 25px;
+  }
+  .education-top > .eyebrow {
+    margin-left: auto;
   }
   .education-grid h3 {
     font-family: var(--font-mono);
     font-size: 25px;
   }
   .education-grid h3 a {
-    display: flex;
-    justify-content: space-between;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
   }
   .education-grid h3 span {
     font-size: 15px;
@@ -263,7 +258,6 @@
       gap: 12px;
     }
     .timeline article {
-      grid-template-columns: 135px 1fr 20px;
       gap: 15px;
     }
   }
@@ -282,26 +276,15 @@
       margin-top: 25px;
     }
     .timeline article {
-      grid-template-columns: 1fr 20px;
+      grid-template-columns: 1fr;
       gap: 12px;
       padding-block: 23px;
     }
-    .timeline-date {
-      grid-column: 1;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
+    .job-meta {
+      text-align: left;
     }
     .tag {
-      margin: 0;
-    }
-    .timeline article > div {
-      grid-column: 1;
-    }
-    .timeline-index {
-      grid-column: 2;
-      grid-row: 1 / 3;
+      margin-left: 0;
     }
     .education-grid {
       grid-template-columns: 1fr;

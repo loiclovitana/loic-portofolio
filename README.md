@@ -15,6 +15,7 @@ npm run dev
 Open the URL printed by Vite, normally <http://localhost:5173>.
 
 ```sh
+./bin/check          # Run formatting lint and Svelte/TypeScript checks
 npm run check         # TypeScript, Svelte, and accessibility diagnostics
 npm run format:check  # Consistent formatting
 npm run build        # Production files in dist/

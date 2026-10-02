@@ -1,9 +1,13 @@
 <script lang="ts">
-  import { skillGroups } from '../content';
+  interface SkillGroup {
+    title: string;
+    skills: string[];
+  }
 
-  const skillCount = skillGroups.reduce(
-    (total, group) => total + group.skills.length,
-    0,
+  let { skillGroups }: { skillGroups: SkillGroup[] } = $props();
+
+  const skillCount = $derived(
+    skillGroups.reduce((total, group) => total + group.skills.length, 0),
   );
   const activityBars = Array.from({ length: 32 });
 </script>
