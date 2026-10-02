@@ -19,7 +19,7 @@ export const sections = {
   },
   experience: {
     id: 'experience',
-    command: 'cat experience.log',
+    command: 'git log',
     title: 'Experience',
     icon: BriefcaseBusiness,
   },
@@ -85,8 +85,8 @@ export const projects: Project[] = [
 
 export const experience = [
   {
-    date: '06.2025 — Present',
-    title: 'DevOps',
+    date: '06.2025 — 08.2025',
+    title: 'Software Engineer',
     company: 'Anaxa Sàrl',
     href: 'https://anaxa.ch',
     location: 'Geneva, Switzerland',

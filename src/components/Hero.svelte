@@ -72,6 +72,7 @@
       label: 'Education',
       value: `${education[0].degree} · ${education[0].school}`,
     },
+    {label: 'Languages', value:'French, English'},
     { label: 'Focus', value: 'Data & automation' },
     { label: 'Values', value: 'Maintainable code & open conversations' },
     {
