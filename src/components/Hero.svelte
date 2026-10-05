@@ -255,7 +255,7 @@
   }
   @media (max-width: 640px) {
     .detail {
-      grid-template-columns: 8ch minmax(0, 1fr);
+      grid-template-columns: 10ch minmax(0, 1fr);
       gap: 8px;
     }
     h1 {
