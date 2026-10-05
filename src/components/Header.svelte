@@ -4,8 +4,7 @@
   import ThemeSwitcher from './ThemeSwitcher.svelte';
 
   const windows = Object.values(sections);
-  let active = $state<string>(sections.about.id);
-  let header: HTMLElement;
+  let { active }: { active: string } = $props();
   let navigation: HTMLElement;
   let now = $state(new Date());
   const timeFormat = new Intl.DateTimeFormat('en-GB', {
@@ -16,34 +15,7 @@
 
   onMount(() => {
     const clock = window.setInterval(() => (now = new Date()), 1000);
-    const targets = windows.map(({ id }) => document.getElementById(id));
-    let frame = 0;
-
-    function update() {
-      frame = 0;
-      const offset = header.getBoundingClientRect().bottom + 32;
-      let current: string = sections.about.id;
-      for (const target of targets) {
-        if (target && target.getBoundingClientRect().top <= offset) {
-          current = target.id;
-        }
-      }
-      active = current;
-    }
-
-    function scheduleUpdate() {
-      if (!frame) frame = requestAnimationFrame(update);
-    }
-
-    update();
-    window.addEventListener('scroll', scheduleUpdate, { passive: true });
-    window.addEventListener('resize', scheduleUpdate);
-    return () => {
-      window.clearInterval(clock);
-      cancelAnimationFrame(frame);
-      window.removeEventListener('scroll', scheduleUpdate);
-      window.removeEventListener('resize', scheduleUpdate);
-    };
+    return () => window.clearInterval(clock);
   });
 
   $effect(() => {
@@ -59,7 +31,7 @@
   });
 </script>
 
-<header class="tmux-bar" bind:this={header}>
+<header class="tmux-bar">
   <a class="session" href="#about" aria-label="Loïc Vandenberghe — home">
     Loïc Portofolio
   </a>
@@ -71,6 +43,8 @@
         class:active={active === window.id}
         href={`#${window.id}`}
         aria-current={active === window.id ? 'location' : undefined}
+        aria-keyshortcuts={`${index}`}
+        title={`${window.title} (${index}) · Page Up/Down: sections · ↑/←: previous entry · ↓/→: next entry`}
       >
         <span class="window-number" aria-hidden="true">{index}:</span>
         <span class="window-name"
@@ -92,8 +66,6 @@
 
 <style>
   .tmux-bar {
-    position: sticky;
-    top: 0;
     z-index: 5;
     display: flex;
     align-items: center;

@@ -2,8 +2,10 @@
   import Hero from './components/Hero.svelte';
   import ContactIcon from './components/ContactIcon.svelte';
   import Header from './components/Header.svelte';
+  import KeyboardHelp from './components/KeyboardHelp.svelte';
   import ProjectCard from './components/ProjectCard.svelte';
   import Section from './components/Section.svelte';
+  import { sectionNavigation } from './navigation';
   import {
     contactLinks,
     education,
@@ -13,13 +15,14 @@
   } from './content';
 
   const year = new Date().getFullYear();
+  let active = $state<string>(sections.about.id);
 </script>
 
 <a class="skip-link" href="#about">Skip to content</a>
 
 <div class="terminal shell">
-  <Header />
-  <main>
+  <Header {active} />
+  <main use:sectionNavigation={{ onselect: (id) => (active = id) }}>
     <Hero />
 
     <Section {...sections.projects}>
@@ -33,7 +36,7 @@
     <Section {...sections.experience}>
       <div class="timeline">
         {#each experience as job (job.title)}
-          <article>
+          <article data-nav-item tabindex="-1">
             <div class="job-details">
               <h3>{job.title}</h3>
               <p>
@@ -60,7 +63,7 @@
     <Section {...sections.education}>
       <div class="education-grid">
         {#each education as item (item.school)}
-          <article>
+          <article data-nav-item tabindex="-1">
             <div class="education-top">
               <h3>
                 <a href={item.href} target="_blank" rel="noreferrer"
@@ -94,6 +97,7 @@
       {/each}
     </nav>
   </div>
+  <KeyboardHelp />
 </div>
 
 <style>
@@ -103,11 +107,27 @@
     font-family: var(--font-mono);
   }
   .terminal {
-    margin-top: 40px;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    height: calc(100dvh - 80px);
+    margin-block: 40px;
     border: 1px solid var(--color-border-strong);
     border-radius: 9px;
     background: var(--color-surface);
     box-shadow: 0 24px 100px var(--color-shadow-soft);
+  }
+  main {
+    min-height: 0;
+    overflow: hidden;
+  }
+  main :global(section) {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior-y: none;
+    scrollbar-gutter: stable;
+    border-bottom: 0;
   }
   .projects {
     display: grid;
@@ -268,7 +288,8 @@
   }
   @media (max-width: 580px) {
     .terminal {
-      margin-top: 12px;
+      height: calc(100dvh - 24px);
+      margin-block: 12px;
     }
     .projects {
       grid-template-columns: 1fr;
