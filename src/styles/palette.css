@@ -4,7 +4,7 @@
 
   color-scheme: dark;
   --color-background: rgba(30, 7, 10, 0.85);
-  --color-surface: #260d12;
+  --color-surface: #200a0f;
   --color-surface-raised: #34151b;
   --color-border: #67202b;
   --color-text: #f1e7e4;
@@ -13,12 +13,11 @@
   --color-on-accent: #1f070b;
   --color-shadow: #0d0204;
 
-  /* Themes can override these independently when background artwork is added. */
-  --page-background-image: radial-gradient(
-    var(--color-accent-subtle) 1px,
-    transparent 1px
-  );
-  --page-background-size: 24px 24px;
+  /* A theme tint keeps the wallpaper in harmony with the terminal. */
+  --page-background-desktop: url('../../assets/images/backgrounds/garnet-sunset.webp');
+  --page-background-mobile: url('../../assets/images/backgrounds/garnet-sunset-mobile.webp');
+  --page-background-tint: rgba(30, 7, 10, 0.3);
+  --page-background-position: center;
 
   --color-accent-hover: color-mix(
     in srgb,
@@ -71,7 +70,7 @@
 :root[data-theme='garnet'] {
   color-scheme: dark;
   --color-background: rgb(0, 0, 0);
-  --color-surface: #260d12;
+  --color-surface: #110407;
   --color-surface-raised: #34151b;
   --color-border: #67202b;
   --color-text: #f1e7e4;
@@ -101,6 +100,9 @@
 
 :root[data-theme='catppuccin-dark'] {
   color-scheme: dark;
+  --page-background-desktop: url('../../assets/images/backgrounds/catppuccin-dark-lenk.webp');
+  --page-background-mobile: url('../../assets/images/backgrounds/catppuccin-dark-lenk-mobile.webp');
+  --page-background-tint: rgba(24, 24, 37, 0.25);
   --color-background: #181825;
   --color-surface: #1e1e2e;
   --color-surface-raised: #313244;
@@ -114,6 +116,9 @@
 
 :root[data-theme='catppuccin-light'] {
   color-scheme: light;
+  --page-background-desktop: url('../../assets/images/backgrounds/catppuccin-light-iffigsee.webp');
+  --page-background-mobile: url('../../assets/images/backgrounds/catppuccin-light-iffigsee-mobile.webp');
+  --page-background-tint: rgba(239, 241, 245, 0.18);
   --color-background: #e6e9ef;
   --color-surface: #eff1f5;
   --color-surface-raised: #dce0e8;
@@ -128,6 +133,9 @@
 
 :root[data-theme='whitesur'] {
   color-scheme: light;
+  --page-background-desktop: url('../../assets/images/backgrounds/whitesur-coast.webp');
+  --page-background-mobile: url('../../assets/images/backgrounds/whitesur-coast-mobile.webp');
+  --page-background-tint: rgba(236, 238, 242, 0.15);
   --color-background: #eceef2;
   --color-surface: #ffffff;
   --color-surface-raised: #f5f5f7;

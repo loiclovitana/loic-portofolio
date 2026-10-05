@@ -15,12 +15,19 @@
   .keyboard-help {
     display: none;
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + 8px);
     inset-inline: 0;
+    width: max-content;
+    max-width: 100%;
+    margin-inline: auto;
+    padding: 3px 12px;
+    border-radius: 6px;
+    background: var(--color-surface);
+    box-shadow: 0 2px 8px var(--color-shadow-soft);
     align-items: center;
     justify-content: center;
-    gap: 24px;
-    color: var(--color-muted);
+    gap: clamp(12px, 2vw, 24px);
+    color: var(--color-text);
     font: 12px/20px var(--font-mono);
     white-space: nowrap;
   }
@@ -28,8 +35,8 @@
     padding: 1px 4px;
     border: 1px solid var(--color-border);
     border-radius: 3px;
-    background: var(--color-surface);
-    color: var(--color-text-secondary);
+    background: var(--color-surface-raised);
+    color: var(--color-text);
     font: inherit;
   }
   @media (min-width: 800px) and (min-height: 900px) {

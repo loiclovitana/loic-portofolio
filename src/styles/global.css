@@ -15,8 +15,30 @@
 }
 body {
   margin: 0;
-  background-image: var(--page-background-image);
-  background-size: var(--page-background-size);
+  display: flow-root;
+  min-height: 100svh;
+  isolation: isolate;
+}
+/* A fixed layer also covers the viewport on mobile without fixed attachment. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--page-background-tint), var(--page-background-tint)),
+    var(--page-background-desktop);
+  background-size: cover;
+  background-position: var(--page-background-position);
+  background-repeat: no-repeat;
+}
+@media (max-width: 800px) {
+  body::before {
+    background-image:
+      linear-gradient(var(--page-background-tint), var(--page-background-tint)),
+      var(--page-background-mobile);
+  }
 }
 ::selection {
   color: var(--color-on-accent);
