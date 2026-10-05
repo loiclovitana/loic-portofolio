@@ -16,7 +16,7 @@
   {#if project.link}<span class="image-arrow" aria-hidden="true">↗</span>{/if}
 {/snippet}
 
-<article class="project">
+<article class="project" data-nav-item tabindex="-1">
   {#if project.link}
     <a
       class="project-image"

@@ -29,6 +29,7 @@ Run `npm run format` to format the source.
 - `src/App.svelte` composes the page and renders the experience, education, and contact sections.
 - `src/components/` contains `Header`, `Hero`, `Portrait`, `Section`, and `ProjectCard`. Each owns its local styles.
 - `src/content.ts` holds section commands, projects, experience, education, and social links. The navigation and sections share the same identifiers.
+- `src/navigation.ts` owns section selection, URL hash synchronization, keyboard controls, edge scrolling, touch swipes, and transitions. Add `data-nav-item` and `tabindex="-1"` to entries that should participate in arrow navigation.
 - `src/styles/palette.css` is the single source for theme palettes: Matrix (the default), Catppuccin Dark (Mocha), Catppuccin Light (Latte), and WhiteSur. Hover colors, borders, overlays, and shadows derive from the palette using CSS variables and `color-mix()`. Themes only change colors; `--page-background-image` and `--page-background-size` support future background variations.
 - `src/themes.ts` owns theme selection, persistence, and browser theme color updates. `ThemeSwitcher.svelte` provides the shared, keyboard-accessible selector in the header and beside the Hero palette. The saved selection is restored before the app mounts; unavailable storage falls back to Matrix without disabling switching.
 - `src/styles/global.css` defines shared typography, layout primitives, and accessibility styles.
@@ -37,7 +38,16 @@ Run `npm run format` to format the source.
 
 ## Interactions
 
-The sticky tmux-style header links to each section, with rounded segment separators and a highlighted window that follows the current section. On narrow screens, the navigation scrolls horizontally.
+The tmux-style header stays above a single visible section. Long sections scroll within the available viewport; scrolling again at the bottom or top moves to the next or previous section. Trackpad momentum is consumed after a switch to prevent skipping sections. On touch screens, swipe again at an edge to switch. Transitions respect reduced-motion preferences. On narrow screens, the header navigation scrolls horizontally.
+
+A compact keyboard guide appears beneath the terminal on windows at least 1100px wide and 700px tall, using the existing bottom margin without reducing the section's space.
+
+- `0`–`3`: About, Projects, Experience, Education (matching the header numbers; unused digits do nothing).
+- `PageUp` / `PageDown`: previous / next section.
+- `↑` or `←` / `↓` or `→`: previous / next entry, then the adjacent section at the boundary. About is selected as a whole. Entering another section with an arrow selects its last / first entry.
+- `Tab` and `Enter`: normal link and control navigation. Shortcuts leave form controls and modified key combinations alone.
+
+Selected entries have an accent outline. Section changes replace the current URL hash without adding browser history entries, so direct links remain shareable and Back returns to the previous page. Section links reset the destination to its top. Navigation stops at the first and last section.
 
 The portrait scan line pauses when offscreen or in a background tab, includes a manual pause control, and respects reduced-motion preferences. Observers and event listeners are cleaned up when the component unmounts.
 
