@@ -114,10 +114,6 @@
   .window-number {
     color: var(--color-text-secondary);
   }
-  .window-marker {
-    display: inline-block;
-    width: 1ch;
-  }
   .window:hover {
     background: var(--color-surface-raised);
     color: var(--color-text);
@@ -153,22 +149,19 @@
   }
   @media (max-width: 640px) {
     .tmux-bar {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 3px 0;
+      border-radius: 0;
       font-size: 14px;
     }
     .session {
       display: block;
-      width: fit-content;
-      max-width: 100%;
+      flex-shrink: 1;
+      min-width: 0;
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: 24px;
     }
     nav {
-      grid-column: 1 / -1;
-      grid-row: 2;
+      display: none;
     }
   }
 </style>

@@ -3,6 +3,7 @@
   import ContactIcon from './components/ContactIcon.svelte';
   import Header from './components/Header.svelte';
   import KeyboardHelp from './components/KeyboardHelp.svelte';
+  import MobileNavigation from './components/MobileNavigation.svelte';
   import ProjectCard from './components/ProjectCard.svelte';
   import Section from './components/Section.svelte';
   import { sectionNavigation } from './navigation';
@@ -92,11 +93,12 @@
           title={link.value}
         >
           <ContactIcon src={link.icon} />
-          <span class="contact-label">{link.label}</span>
+          <span>{link.label}</span>
         </a>
       {/each}
     </nav>
   </div>
+  <MobileNavigation {active} />
   <KeyboardHelp />
 </div>
 
@@ -286,13 +288,21 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
-  @media (max-width: 580px) {
+  @media (max-width: 640px) {
     .terminal {
       width: 100%;
       height: 100dvh;
       margin: 0;
+      padding-top: env(safe-area-inset-top);
+      padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
+      border: 0;
       border-radius: 0;
     }
+    .statusbar {
+      display: none;
+    }
+  }
+  @media (max-width: 580px) {
     .projects {
       grid-template-columns: 1fr;
       gap: 20px;
@@ -357,22 +367,6 @@
     }
     .education-grid h3 {
       font-size: 21px;
-    }
-    .statusbar {
-      font-size: 12px;
-      padding: 8px 10px;
-      gap: 8px 12px;
-    }
-    .statusbar-contacts {
-      gap: 8px;
-    }
-    .statusbar-contacts a {
-      justify-content: center;
-      min-width: 36px;
-      min-height: 36px;
-    }
-    .contact-label {
-      display: none;
     }
   }
 </style>
