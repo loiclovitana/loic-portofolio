@@ -163,5 +163,14 @@
     .project-body {
       padding: 20px;
     }
+    .project h3 {
+      font-size: 18px;
+    }
+    .project-body .eyebrow {
+      font-size: 12px;
+    }
+    .image-label {
+      font-size: 12px;
+    }
   }
 </style>

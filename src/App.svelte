@@ -39,7 +39,7 @@
           <article data-nav-item tabindex="-1">
             <div class="job-details">
               <h3>{job.title}</h3>
-              <p>
+              <p class="job-company">
                 {#if job.href}<a
                     href={job.href}
                     target="_blank"
@@ -298,16 +298,55 @@
       gap: 20px;
       margin-top: 25px;
     }
-    .timeline article {
-      grid-template-columns: 1fr;
-      gap: 12px;
-      padding-block: 23px;
+    .timeline {
+      margin-top: 24px;
     }
+    .timeline article {
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        'date tag'
+        'title title'
+        'company company'
+        'location location'
+        'description description';
+      gap: 0 12px;
+      padding-block: 22px;
+    }
+    .job-details,
     .job-meta {
+      display: contents;
       text-align: left;
     }
+    .timeline-date {
+      grid-area: date;
+      align-self: center;
+      font-size: 12px;
+    }
     .tag {
-      margin-left: 0;
+      grid-area: tag;
+      align-self: center;
+      margin: 0;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+    }
+    .timeline h3 {
+      grid-area: title;
+      margin: 12px 0 6px;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+    .job-details > .job-company {
+      grid-area: company;
+      font-size: 15px;
+    }
+    .job-location {
+      grid-area: location;
+      margin-top: 2px;
+      font-size: 13px;
+    }
+    .job-details > .job-description {
+      grid-area: description;
+      font-size: 14px;
     }
     .education-grid {
       grid-template-columns: 1fr;
@@ -316,8 +355,11 @@
     .education-grid article {
       padding: 22px;
     }
+    .education-grid h3 {
+      font-size: 21px;
+    }
     .statusbar {
-      font-size: 14px;
+      font-size: 12px;
       padding: 8px 10px;
       gap: 8px 12px;
     }

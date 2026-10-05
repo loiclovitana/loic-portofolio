@@ -33,7 +33,7 @@
 
 <header class="tmux-bar">
   <a class="session" href="#about" aria-label="Loïc Vandenberghe — home">
-    Loïc Portofolio
+    Loïc Portfolio
   </a>
 
   <nav aria-label="Main navigation" bind:this={navigation}>
@@ -47,11 +47,7 @@
         title={`${window.title} (${index}) · Page Up/Down: sections · ↑/←: previous entry · ↓/→: next entry`}
       >
         <span class="window-number" aria-hidden="true">{index}:</span>
-        <span class="window-name"
-          >{window.id}<span class="window-marker" aria-hidden="true"
-            >{active === window.id ? '*' : ''}</span
-          ></span
-        >
+        <span class="window-name">{window.id}</span>
       </a>
     {/each}
   </nav>

@@ -254,12 +254,15 @@
     }
   }
   @media (max-width: 640px) {
+    .fetch-info {
+      font-size: 14px;
+    }
     .detail {
       grid-template-columns: 10ch minmax(0, 1fr);
       gap: 8px;
     }
     h1 {
-      font-size: 26px;
+      font-size: 24px;
     }
   }
 </style>

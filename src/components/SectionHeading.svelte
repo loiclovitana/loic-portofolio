@@ -87,10 +87,10 @@
       --segment-height: 32px;
     }
     .prompt-title {
-      font-size: 17px;
+      font-size: 16px;
     }
     .command {
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 </style>
