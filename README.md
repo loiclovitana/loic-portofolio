@@ -1,37 +1,46 @@
-# My portofolio
+# Loïc Vandenberghe — portfolio
 
-![Build](https://github.com/loiclovitana/loic-portofolio/actions/workflows/build-hugo.yaml/badge.svg)
-![Deployment](https://github.com/loiclovitana/loic-portofolio/actions/workflows/deploy-hugo.yaml/badge.svg)
+A single-page portfolio built with Svelte 5, TypeScript, and Vite. The terminal-inspired layout includes an ASCII portrait and section navigation.
 
-Website using the Hugo framework used as my portofolio for past experience and projects.
+## Development
 
-## Download
+Use Node.js 22.12+ (or enter the included Nix environment):
 
-- Clone the repo: `git clone https://github.com/loiclovitana/loic-portofolio.git`.
-- Or [Download from GitHub](https://github.com/loiclovitana/loic-portofolio/releases).
-- Initialize the submodule: `git submodule init && git submodule update`
+```sh
+nix develop path:.
+npm ci
+npm run dev
+```
 
-## Build
+Open the URL printed by Vite, normally <http://localhost:5173>.
 
-- use the Dockerfile in `.devcontainer/Dockerfile`
-- or Open a github Codespace
+```sh
+./bin/check          # Run formatting lint and Svelte/TypeScript checks
+npm run check         # TypeScript, Svelte, and accessibility diagnostics
+npm run format:check  # Consistent formatting
+npm run build        # Production files in dist/
+npm run preview      # Serve the production build locally
+```
 
-Then run `./run_dev`
+Run `npm run format` to format the source.
 
-**Alternatively**
+## Structure
 
-1. Install Hugo extended edition :
+- `src/App.svelte` composes the page and renders the experience, education, and contact sections.
+- `src/components/` contains `Header`, `Hero`, `Portrait`, `Section`, and `ProjectCard`. Each owns its local styles.
+- `src/content.ts` holds section commands, projects, experience, education, and social links. The navigation and sections share the same identifiers.
+- `src/styles/palette.css` is the single source for theme palettes: Matrix (the default), Catppuccin Dark (Mocha), Catppuccin Light (Latte), and WhiteSur. Hover colors, borders, overlays, and shadows derive from the palette using CSS variables and `color-mix()`. Themes only change colors; `--page-background-image` and `--page-background-size` support future background variations.
+- `src/themes.ts` owns theme selection, persistence, and browser theme color updates. `ThemeSwitcher.svelte` provides the shared, keyboard-accessible selector in the header and beside the Hero palette. The saved selection is restored before the app mounts; unavailable storage falls back to Matrix without disabling switching.
+- `src/styles/global.css` defines shared typography, layout primitives, and accessibility styles.
+- `src/profil_ascii.txt` supplies the portrait. Project images are imported from `assets/images/works/` so Vite generates versioned asset URLs.
+- `public/` contains the favicon and custom-domain `CNAME`, copied directly into the build.
 
-- See [https://gohugo.io/installation/](https://gohugo.io/installation/)
-- The project was developed on version V0.133.0. You can download the specific version [HERE](https://github.com/gohugoio/hugo/releases/tag/v0.133.0)
+## Interactions
 
-2. Make sure NodeJS is installed on your machine: [Download Here](https://nodejs.org/en/download/package-manager/current)
+The sticky tmux-style header links to each section, with rounded segment separators and a highlighted window that follows the current section. On narrow screens, the navigation scrolls horizontally.
 
-3. Install NodeJs dependencies:
-    1. Enter the newly created folder: `cd <your website's name>/`
-    2. Install PostCSS: execute `npm i -D postcss postcss-cli autoprefixer` from the top-level site folder
+The portrait scan line pauses when offscreen or in a background tab, includes a manual pause control, and respects reduced-motion preferences. Observers and event listeners are cleaned up when the component unmounts.
 
-4. Start the server : `./run_dev` or `hugo server -D`
+## Deployment
 
----
-Thanks to [Adriatan](https://github.com/zetxek/adritian-free-hugo-theme.git) for his Hugo Theme
+Deploy the contents of `dist/` to a static host after `npm run build`. The app uses client-side Svelte rendering and hash navigation, so no server runtime or route rewrites are needed. JavaScript is required to render the page. For GitHub Pages, publish the built output rather than the source directory; `dist/CNAME` preserves the existing custom domain.

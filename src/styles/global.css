@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--color-text);
+  background: var(--color-background);
+  font-synthesis: none;
+  line-height: 1.6;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 54px;
+}
+body {
+  margin: 0;
+  background-image: var(--page-background-image);
+  background-size: var(--page-background-size);
+}
+::selection {
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  border: 0;
+}
+a,
+button {
+  transition:
+    color 0.2s,
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+a:hover {
+  color: var(--color-accent);
+}
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 5px;
+}
+section[tabindex='-1']:focus {
+  outline: none;
+}
+[hidden] {
+  display: none !important;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  line-height: 1.15;
+}
+.shell {
+  width: min(1320px, calc(100% - 80px));
+  margin-inline: auto;
+}
+.accent {
+  color: var(--color-accent);
+}
+.muted {
+  color: var(--color-muted);
+}
+.eyebrow {
+  font-family: var(--font-mono);
+}
+.eyebrow {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent-glow);
+}
+section {
+  padding: 48px 42px 52px;
+  border-bottom: 1px solid var(--color-border);
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.text-link span {
+  color: var(--color-accent);
+}
+h2 {
+  font-size: clamp(24px, 2.4vw, 32px);
+  letter-spacing: -0.035em;
+}
+h3 {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 1100px) {
+  .shell {
+    width: calc(100% - 40px);
+  }
+  section {
+    padding-inline: 28px;
+  }
+}
+@media (max-width: 800px) {
+  .shell {
+    width: calc(100% - 32px);
+  }
+  section {
+    padding-inline: 30px;
+  }
+  h2 {
+    font-size: 29px;
+  }
+}
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+}
+@media (max-width: 580px) {
+  .shell {
+    width: calc(100% - 24px);
+  }
+  section {
+    padding: 34px 20px 38px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
