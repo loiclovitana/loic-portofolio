@@ -136,7 +136,7 @@
 
       <div class="palette-controls">
         <div class="color-bars" aria-hidden="true">
-          {#each ['--color-background', '--color-border', '--color-muted', '--color-text-secondary', '--color-portrait', '--color-accent', '--color-accent-hover', '--color-text'] as color}
+          {#each ['--color-background', '--color-border', '--color-text', '--color-text-secondary', '--color-accent', '--color-accent-hover', '--color-muted'] as color}
             <span style:background={`var(${color})`}></span>
           {/each}
         </div>

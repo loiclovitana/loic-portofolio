@@ -1,8 +1,16 @@
 <script lang="ts">
-  import portrait from '../profil_ascii.txt?raw';
+  import darkPortrait from '../profil_ascii_dark.txt?raw';
+  import lightPortrait from '../profil_ascii_light.txt?raw';
+  import { theme } from '../themes';
   import Image from '@lucide/svelte/icons/image';
   import Type from '@lucide/svelte/icons/type';
   let view = $state<'ascii' | 'photo'>('ascii');
+  const portrait = $derived.by(() => {
+    void $theme; // Re-read the CSS color scheme whenever the theme changes.
+    return getComputedStyle(document.documentElement).colorScheme === 'light'
+      ? lightPortrait
+      : darkPortrait;
+  });
 </script>
 
 <div class="portrait">

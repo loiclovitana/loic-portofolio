@@ -49,7 +49,7 @@
   --color-accent-glow: color-mix(in srgb, var(--color-accent) 12%, transparent);
   --color-accent-soft: color-mix(in srgb, var(--color-accent) 20%, transparent);
   --color-accent-line: color-mix(in srgb, var(--color-accent) 25%, transparent);
-  --color-portrait: color-mix(in srgb, var(--color-accent) 72%, transparent);
+  --color-portrait: var(--color-accent);
   --color-image-label: color-mix(
     in srgb,
     var(--color-background) 88%,

@@ -5,6 +5,6 @@ cd "$(dirname "$0")/.."
 
 # Run both checks even when one fails, so all diagnostics are visible.
 status=0
-npm run format:check || status=1
+npm run format || status=1
 npm run check || status=1
 exit "$status"
