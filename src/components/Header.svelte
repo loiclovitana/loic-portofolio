@@ -33,7 +33,7 @@
 
 <header class="tmux-bar">
   <a class="session" href="#about" aria-label="Loïc Vandenberghe — home">
-    Loïc Portofolio
+    Loïc Portfolio
   </a>
 
   <nav aria-label="Main navigation" bind:this={navigation}>
