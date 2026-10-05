@@ -1,4 +1,5 @@
 # Loïc Vandenberghe — portfolio
+[![Deploy to GitHub Pages](https://github.com/loiclovitana/loic-portofolio/actions/workflows/deploy-pages.yml/badge.svg?branch=master)](https://github.com/loiclovitana/loic-portofolio/actions/workflows/deploy-pages.yml)
 
 A single-page portfolio built with Svelte 5, TypeScript, and Vite. The terminal-inspired layout includes an ASCII portrait and section navigation.
 
