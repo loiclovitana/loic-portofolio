@@ -1,24 +1,21 @@
 /* All UI colors originate here. Translucent effects derive from this palette. */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
+  --color-background: #e6e9ef;
+  --color-surface: #eff1f5;
+  --color-surface-raised: #dce0e8;
+  --color-border: #bcc0cc;
+  --color-text: #4c4f69;
+  --color-muted: #6c6f85;
+  --color-accent: #b52a37;
+  --color-on-accent: #eff1f5;
+  --color-shadow: #4c4f69;
 
-  color-scheme: dark;
-  --color-background: rgba(30, 7, 10, 0.85);
-  --color-surface: #260d12;
-  --color-surface-raised: #34151b;
-  --color-border: #67202b;
-  --color-text: #f1e7e4;
-  --color-muted: #b89c9d;
-  --color-accent: #c8102e;
-  --color-on-accent: #1f070b;
-  --color-shadow: #0d0204;
-
-  /* Themes can override these independently when background artwork is added. */
-  --page-background-image: radial-gradient(
-    var(--color-accent-subtle) 1px,
-    transparent 1px
-  );
-  --page-background-size: 24px 24px;
+  /* A theme tint keeps the wallpaper in harmony with the terminal. */
+  --page-background-desktop: url('../../assets/images/backgrounds/catppuccin-light-iffigsee.webp');
+  --page-background-mobile: url('../../assets/images/backgrounds/catppuccin-light-iffigsee-mobile.webp');
+  --page-background-tint: rgba(239, 241, 245, 0.18);
+  --page-background-position: center;
 
   --color-accent-hover: color-mix(
     in srgb,
@@ -71,7 +68,7 @@
 :root[data-theme='garnet'] {
   color-scheme: dark;
   --color-background: rgb(0, 0, 0);
-  --color-surface: #260d12;
+  --color-surface: #110407;
   --color-surface-raised: #34151b;
   --color-border: #67202b;
   --color-text: #f1e7e4;
@@ -79,6 +76,9 @@
   --color-accent: #c8102e;
   --color-on-accent: #1f070b;
   --color-shadow: #0d0204;
+  --page-background-desktop: url('../../assets/images/backgrounds/garnet-sunset.webp');
+  --page-background-mobile: url('../../assets/images/backgrounds/garnet-sunset-mobile.webp');
+
 }
 
 :root[data-theme='garnet'] ::selection {
@@ -101,6 +101,9 @@
 
 :root[data-theme='catppuccin-dark'] {
   color-scheme: dark;
+  --page-background-desktop: url('../../assets/images/backgrounds/catppuccin-dark-lenk.webp');
+  --page-background-mobile: url('../../assets/images/backgrounds/catppuccin-dark-lenk-mobile.webp');
+  --page-background-tint: rgba(24, 24, 37, 0.25);
   --color-background: #181825;
   --color-surface: #1e1e2e;
   --color-surface-raised: #313244;
@@ -112,22 +115,28 @@
   --color-shadow: #11111b;
 }
 
-:root[data-theme='catppuccin-light'] {
+:root[data-theme='swiss'] {
   color-scheme: light;
+  --page-background-desktop: url('../../assets/images/backgrounds/catppuccin-light-iffigsee.webp');
+  --page-background-mobile: url('../../assets/images/backgrounds/catppuccin-light-iffigsee-mobile.webp');
+  --page-background-tint: rgba(239, 241, 245, 0.18);
   --color-background: #e6e9ef;
   --color-surface: #eff1f5;
   --color-surface-raised: #dce0e8;
   --color-border: #bcc0cc;
   --color-text: #4c4f69;
   --color-muted: #6c6f85;
-  --color-accent: #8839ef;
+  --color-accent: #b52a37;
   --color-on-accent: #eff1f5;
   --color-shadow: #4c4f69;
-  --color-portrait: #2c134c;
+  --color-portrait: var(--color-accent);
 }
 
 :root[data-theme='whitesur'] {
   color-scheme: light;
+  --page-background-desktop: url('../../assets/images/backgrounds/whitesur-coast.webp');
+  --page-background-mobile: url('../../assets/images/backgrounds/whitesur-coast-mobile.webp');
+  --page-background-tint: rgba(236, 238, 242, 0.15);
   --color-background: #eceef2;
   --color-surface: #ffffff;
   --color-surface-raised: #f5f5f7;

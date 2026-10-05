@@ -2,13 +2,13 @@ import { readonly, writable } from 'svelte/store';
 
 export const themes = [
   { id: 'garnet', label: 'Garnet' },
-  { id: 'catppuccin-dark', label: 'Catppuccin Dark' },
-  { id: 'catppuccin-light', label: 'Catppuccin Light' },
+  { id: 'catppuccin-dark', label: 'Catppuccin' },
+  { id: 'swiss', label: 'Swiss' },
   { id: 'whitesur', label: 'WhiteSur' },
 ] as const;
 
 type ThemeId = (typeof themes)[number]['id'];
-const defaultTheme: ThemeId = 'garnet';
+const defaultTheme: ThemeId = 'swiss';
 const storageKey = 'portfolio-theme';
 const selectedTheme = writable<ThemeId>(defaultTheme);
 

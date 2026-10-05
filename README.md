@@ -1,5 +1,7 @@
 # Loïc Vandenberghe — portfolio
 
+[![Deploy to GitHub Pages](https://github.com/loiclovitana/loic-portofolio/actions/workflows/deploy-pages.yml/badge.svg?branch=master)](https://github.com/loiclovitana/loic-portofolio/actions/workflows/deploy-pages.yml)
+
 A single-page portfolio built with Svelte 5, TypeScript, and Vite. The terminal-inspired layout includes an ASCII portrait and section navigation.
 
 ## Development
@@ -30,8 +32,9 @@ Run `npm run format` to format the source.
 - `src/components/` contains `Header`, `Hero`, `Portrait`, `Section`, and `ProjectCard`. Each owns its local styles.
 - `src/content.ts` holds section commands, projects, experience, education, and social links. The navigation and sections share the same identifiers.
 - `src/navigation.ts` owns section selection, URL hash synchronization, keyboard controls, edge scrolling, touch swipes, and transitions. Add `data-nav-item` and `tabindex="-1"` to entries that should participate in arrow navigation.
-- `src/styles/palette.css` is the single source for theme palettes: Matrix (the default), Catppuccin Dark (Mocha), Catppuccin Light (Latte), and WhiteSur. Hover colors, borders, overlays, and shadows derive from the palette using CSS variables and `color-mix()`. Themes only change colors; `--page-background-image` and `--page-background-size` support future background variations.
-- `src/themes.ts` owns theme selection, persistence, and browser theme color updates. `ThemeSwitcher.svelte` provides the shared, keyboard-accessible selector in the header and beside the Hero palette. The saved selection is restored before the app mounts; unavailable storage falls back to Matrix without disabling switching.
+- `src/styles/palette.css` is the single source for theme palettes: Swiss (the default), Garnet, Catppuccin Dark (Mocha), and WhiteSur. Hover colors, borders, overlays, and shadows derive from the palette using CSS variables and `color-mix()`. Each theme also selects a wallpaper and tint.
+- `assets/images/backgrounds/` contains optimized WebP wallpapers imported through CSS so Vite generates versioned asset URLs. Garnet uses the sailing sunset, Catppuccin Dark the Lenk winter dusk, Swiss the Iffigsee alpine lake, and WhiteSur the coast photographed by Christophe Demeyer. Desktop images are at most 2560px on their longest edge; screens up to 800px wide use smaller 960px versions. Original photos remain in the ignored `wallpaper/` working folder and are not shipped.
+- `src/themes.ts` owns theme selection, persistence, and browser theme color updates. `ThemeSwitcher.svelte` provides the shared, keyboard-accessible selector in the header and beside the Hero palette. The saved selection is restored before the app mounts; unavailable storage falls back to Swiss without disabling switching.
 - `src/styles/global.css` defines shared typography, layout primitives, and accessibility styles.
 - `src/profil_ascii.txt` supplies the portrait. Project images are imported from `assets/images/works/` so Vite generates versioned asset URLs.
 - `public/` contains the favicon and custom-domain `CNAME`, copied directly into the build.

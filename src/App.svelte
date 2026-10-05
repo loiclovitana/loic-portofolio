@@ -117,7 +117,9 @@
     margin-block: 40px;
     border: 1px solid var(--color-border-strong);
     border-radius: 9px;
-    background: var(--color-surface);
+    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     box-shadow: 0 24px 100px var(--color-shadow-soft);
   }
   main {
