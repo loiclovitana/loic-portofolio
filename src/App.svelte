@@ -288,8 +288,10 @@
   }
   @media (max-width: 580px) {
     .terminal {
-      height: calc(100dvh - 24px);
-      margin-block: 12px;
+      width: 100%;
+      height: 100dvh;
+      margin: 0;
+      border-radius: 0;
     }
     .projects {
       grid-template-columns: 1fr;
