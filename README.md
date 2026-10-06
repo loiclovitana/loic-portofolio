@@ -30,7 +30,8 @@ Run `npm run format` to format the source.
 
 - `src/App.svelte` composes the page and renders the experience, education, and contact sections.
 - `src/components/` contains `Header`, `Hero`, `Portrait`, `Section`, and `ProjectCard`. Each owns its local styles.
-- `src/content.ts` holds section commands, projects, experience, education, and social links. The navigation and sections share the same identifiers.
+- `src/content.ts` holds section commands, projects, experience, education, skill groups, and social links. The navigation and sections share the same identifiers.
+- `src/components/SkillsDirectory.svelte` displays skills as a directory tree with selectable entries, descriptions, and related work. It uses the shared section heading and theme palette.
 - `src/navigation.ts` owns section selection, URL hash synchronization, keyboard controls, edge scrolling, touch swipes, and transitions. Add `data-nav-item` and `tabindex="-1"` to entries that should participate in arrow navigation.
 - `src/styles/palette.css` is the single source for theme palettes: Swiss (the default), Garnet, Catppuccin Dark (Mocha), and WhiteSur. Hover colors, borders, overlays, and shadows derive from the palette using CSS variables and `color-mix()`. Each theme also selects a wallpaper and tint.
 - `assets/images/backgrounds/` contains optimized WebP wallpapers imported through CSS so Vite generates versioned asset URLs. Garnet uses the sailing sunset, Catppuccin Dark the Lenk winter dusk, Swiss the Iffigsee alpine lake, and WhiteSur the coast photographed by Christophe Demeyer. Desktop images are at most 2560px on their longest edge; screens up to 800px wide use smaller 960px versions. Original photos remain in the ignored `wallpaper/` working folder and are not shipped.
@@ -45,7 +46,7 @@ The tmux-style header stays above a single visible section. Long sections scroll
 
 A compact keyboard guide appears beneath the terminal on windows at least 1100px wide and 700px tall, using the existing bottom margin without reducing the section's space.
 
-- `0`–`3`: About, Projects, Experience, Education (matching the header numbers; unused digits do nothing).
+- `0`–`4`: About, Projects, Experience, Education, Skills (matching the header numbers; unused digits do nothing).
 - `PageUp` / `PageDown`: previous / next section.
 - `↑` or `←` / `↓` or `→`: previous / next entry, then the adjacent section at the boundary. About is selected as a whole. Entering another section with an arrow selects its last / first entry.
 - `Tab` and `Enter`: normal link and control navigation. Shortcuts leave form controls and modified key combinations alone.

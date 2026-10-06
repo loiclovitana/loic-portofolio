@@ -8,6 +8,7 @@ import UserRound from '@lucide/svelte/icons/user-round';
 import FolderCode from '@lucide/svelte/icons/folder-code';
 import BriefcaseBusiness from '@lucide/svelte/icons/briefcase-business';
 import GraduationCap from '@lucide/svelte/icons/graduation-cap';
+import FolderTree from '@lucide/svelte/icons/folder-tree';
 
 export const sections = {
   about: { id: 'about', command: 'fastfetch', title: 'About', icon: UserRound },
@@ -29,7 +30,111 @@ export const sections = {
     title: 'Education',
     icon: GraduationCap,
   },
+  skills: {
+    id: 'skills',
+    command: 'tree ./skills',
+    title: 'Skills',
+    icon: FolderTree,
+  },
 } as const;
+
+export interface Skill {
+  id: string;
+  name: string;
+  description: string;
+  related: { label: string; href: string }[];
+}
+
+export interface SkillGroup {
+  id: string;
+  skills: Skill[];
+}
+
+export const skillGroups: SkillGroup[] = [
+  {
+    id: 'data-science',
+    skills: [
+      {
+        id: 'machine-learning',
+        name: 'Machine learning',
+        description:
+          'Working with random forests and LSTMs to predict incorrect contribution payments.',
+        related: [{ label: 'Forecasting thesis', href: '#projects' }],
+      },
+      {
+        id: 'forecasting',
+        name: 'Forecasting',
+        description:
+          'Predicting incorrect contribution payments to help prevent accumulating interest.',
+        related: [{ label: 'Forecasting thesis', href: '#projects' }],
+      },
+      {
+        id: 'data-visualization',
+        name: 'Data visualization',
+        description:
+          'Making data easier to explore through interactive visualizations.',
+        related: [{ label: 'World Beers visualization', href: '#projects' }],
+      },
+    ],
+  },
+  {
+    id: 'data-engineering',
+    skills: [
+      {
+        id: 'data-pipelines',
+        name: 'Data pipelines',
+        description:
+          'Building end-to-end migration pipelines with product owners and clients.',
+        related: [{ label: 'Data engineering at ELCA', href: '#experience' }],
+      },
+      {
+        id: 'data-migration',
+        name: 'Data migration',
+        description:
+          'Moving data between systems in close collaboration with the people who use it.',
+        related: [{ label: 'Data engineering at ELCA', href: '#experience' }],
+      },
+      {
+        id: 'automation',
+        name: 'Automation',
+        description:
+          'Automating lineups and supporting transfer decisions in Hockey Manager.',
+        related: [{ label: 'Hockey analytics', href: '#projects' }],
+      },
+    ],
+  },
+  {
+    id: 'software',
+    skills: [
+      {
+        id: 'typescript',
+        name: 'TypeScript',
+        description:
+          'Using typed components and shared navigation logic in this portfolio.',
+        related: [{ label: 'This portfolio', href: '#about' }],
+      },
+      {
+        id: 'svelte',
+        name: 'Svelte',
+        description:
+          'Building this portfolio with Svelte 5, reusable components, and responsive layouts.',
+        related: [{ label: 'This portfolio', href: '#about' }],
+      },
+      {
+        id: 'git',
+        name: 'Git',
+        description:
+          'Versioning this portfolio and sharing project source code on GitHub.',
+        related: [
+          {
+            label: 'Portfolio source',
+            href: 'https://github.com/loiclovitana/loic-portofolio',
+          },
+        ],
+      },
+    ],
+  },
+];
 
 export interface Project {
   id: string;

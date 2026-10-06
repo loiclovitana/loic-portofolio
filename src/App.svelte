@@ -6,6 +6,7 @@
   import MobileNavigation from './components/MobileNavigation.svelte';
   import ProjectCard from './components/ProjectCard.svelte';
   import Section from './components/Section.svelte';
+  import SkillsDirectory from './components/SkillsDirectory.svelte';
   import { sectionNavigation } from './navigation';
   import {
     contactLinks,
@@ -13,6 +14,7 @@
     experience,
     projects,
     sections,
+    skillGroups,
   } from './content';
 
   const year = new Date().getFullYear();
@@ -78,6 +80,9 @@
           </article>
         {/each}
       </div>
+    </Section>
+    <Section {...sections.skills} intro="The tools behind my work.">
+      <SkillsDirectory {skillGroups} />
     </Section>
   </main>
 
