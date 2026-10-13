@@ -28,7 +28,7 @@
   <main use:sectionNavigation={{ onselect: (id) => (active = id) }}>
     <Hero />
 
-    <Section {...sections.skills} intro="The tools behind my work.">
+    <Section {...sections.skills}>
       <SkillsDirectory {skillGroups} />
     </Section>
 

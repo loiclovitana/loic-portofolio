@@ -41,8 +41,10 @@ export const sections = {
 export interface Skill {
   id: string;
   name: string;
-  description: string;
-  related: { label: string; href: string }[];
+  context: string;
+  points: string[];
+  related: string[];
+  reference?: { label: string; href: string };
 }
 
 export interface SkillGroup {
@@ -52,28 +54,90 @@ export interface SkillGroup {
 
 export const skillGroups: SkillGroup[] = [
   {
-    id: 'data-science',
+    id: 'software-engineering',
     skills: [
       {
-        id: 'machine-learning',
-        name: 'Machine learning',
-        description:
-          'Working with random forests and LSTMs to predict incorrect contribution payments.',
-        related: [{ label: 'Forecasting thesis', href: '#projects' }],
+        id: 'python-fastapi',
+        name: 'Python · FastAPI · Pydantic',
+        context: 'Preferred backend stack',
+        points: [
+          'FastAPI backends for web applications',
+          'Hockey BI, chatbots, news aggregation and crypto trading',
+          'Pydantic for typed data models',
+        ],
+        related: ['Anaxa · News aggregation & trading', 'Personal · Hockey BI'],
       },
       {
-        id: 'forecasting',
-        name: 'Forecasting',
-        description:
-          'Predicting incorrect contribution payments to help prevent accumulating interest.',
-        related: [{ label: 'Forecasting thesis', href: '#projects' }],
+        id: 'react-typescript',
+        name: 'React · TypeScript · Vite',
+        context: 'Preferred frontend stack',
+        points: [
+          'Client-rendered frontends with React and Vite',
+          'FastAPI integration for API calls',
+          'News comparison dashboards and trading interfaces',
+        ],
+        related: ['Anaxa · News aggregation & trading'],
       },
       {
-        id: 'data-visualization',
-        name: 'Data visualization',
-        description:
-          'Making data easier to explore through interactive visualizations.',
-        related: [{ label: 'World Beers visualization', href: '#projects' }],
+        id: 'go-wails',
+        name: 'Go · Wails',
+        context: 'Professional · 6 months of development',
+        points: [
+          'Desktop trading application built with Wails',
+          'Local copy-trading service running on the desktop',
+          'Exchange REST and WebSocket integrations',
+        ],
+        related: ['Anaxa · Trading systems'],
+      },
+      {
+        id: 'java-spring-boot',
+        name: 'Java · Spring Boot',
+        context: 'Professional & academic',
+        points: [
+          'Spring Boot data synchronization services at ELCA',
+          'Sedex API integration and RabbitMQ usage',
+          'Extensive Java coursework',
+        ],
+        related: ['ELCA · Backend services', 'EPFL · Computer science'],
+      },
+      {
+        id: 'ansible-docker',
+        name: 'Ansible · Docker',
+        context: 'Professional · Infrastructure at Anaxa',
+        points: [
+          'Ansible jobs to dynamically configure instance permissions',
+          'Infrastructure provisioning and access management',
+          'Docker deployments with NGINX and GitHub Actions',
+        ],
+        related: ['Anaxa · Infrastructure & delivery'],
+      },
+      {
+        id: 'c-concurrency',
+        name: 'C · Concurrency · RDMA',
+        context: 'Academic · MSc project',
+        points: [
+          'Concurrency and synchronization with locks',
+          'RDMA replication performance measurements',
+          'MSc project supporting the lab’s OSDI 2020 research',
+        ],
+        related: ['EPFL · RDMA replication project'],
+        reference: {
+          label:
+            'Lab paper · Microsecond Consensus for Microsecond Applications',
+          href: 'https://www.usenix.org/conference/osdi20/presentation/aguilera',
+        },
+      },
+      {
+        id: 'additional-tools',
+        name: 'Additional tools',
+        context: 'Other experience & exploration',
+        points: [
+          'Used: gRPC',
+          'Academic foundation: Scala',
+          'Explored: Kubernetes, Svelte and NixOS',
+          'Explored: C++ and 3D rendering',
+        ],
+        related: [],
       },
     ],
   },
@@ -81,55 +145,112 @@ export const skillGroups: SkillGroup[] = [
     id: 'data-engineering',
     skills: [
       {
-        id: 'data-pipelines',
-        name: 'Data pipelines',
-        description:
-          'Building end-to-end migration pipelines with product owners and clients.',
-        related: [{ label: 'Data engineering at ELCA', href: '#experience' }],
+        id: 'sql-server-ssis',
+        name: 'SQL Server · SSIS',
+        context: 'Professional · 5 years on data migration',
+        points: [
+          'Staging models and stored procedures for ETL',
+          'SSIS package deployment and automation',
+          'Versioned SQL Server projects and SSIS packages',
+          'Unit and integration tests for migration pipelines',
+        ],
+        related: ['ELCA · Social insurance data migration'],
       },
       {
-        id: 'data-migration',
-        name: 'Data migration',
-        description:
-          'Moving data between systems in close collaboration with the people who use it.',
-        related: [{ label: 'Data engineering at ELCA', href: '#experience' }],
+        id: 'postgresql',
+        name: 'PostgreSQL',
+        context: 'Professional · Application usage',
+        points: [
+          'Primary database for crypto applications at Anaxa',
+          'SQL Server experience applied to PostgreSQL',
+        ],
+        related: ['Anaxa · Trading systems'],
       },
       {
-        id: 'automation',
-        name: 'Automation',
-        description:
-          'Automating lineups and supporting transfer decisions in Hockey Manager.',
-        related: [{ label: 'Hockey analytics', href: '#projects' }],
+        id: 'mongodb',
+        name: 'MongoDB',
+        context: 'Professional · News aggregation',
+        points: [
+          'Primary database for the news aggregator',
+          'Storage for articles and LLM-extracted events and topics',
+        ],
+        related: ['Anaxa · News event tracking'],
+      },
+      {
+        id: 'rabbitmq',
+        name: 'RabbitMQ',
+        context: 'Professional · Setup & integration',
+        points: [
+          'Complete setup and configuration for news aggregation',
+          'Message-based article processing pipeline',
+          'Earlier integration experience with Java at ELCA',
+        ],
+        related: ['Anaxa · News event tracking', 'ELCA · Java services'],
+      },
+      {
+        id: 'clickhouse-cube',
+        name: 'ClickHouse · Cube.js',
+        context: 'Professional · Analytics at Anaxa',
+        points: [
+          'Real-time ClickHouse pipelines for crypto analytics',
+          'Cube.js semantic layer for sports analytics',
+          'Role-based access control for analytics data',
+        ],
+        related: ['Anaxa · Trading systems', 'Anaxa · Sports analytics'],
+      },
+      {
+        id: 'tableau-d3',
+        name: 'Tableau · D3.js',
+        context: 'Academic · Data visualization',
+        points: [
+          'Tableau visualizations of MSc thesis results',
+          'One week of Tableau training',
+          'D3.js foundation from coursework',
+        ],
+        related: ['EPFL / ELCA · MSc thesis', 'EPFL · Coursework'],
       },
     ],
   },
   {
-    id: 'software',
+    id: 'ai-and-machine-learning',
     skills: [
       {
-        id: 'typescript',
-        name: 'TypeScript',
-        description:
-          'Using typed components and shared navigation logic in this portfolio.',
-        related: [{ label: 'This portfolio', href: '#about' }],
-      },
-      {
-        id: 'svelte',
-        name: 'Svelte',
-        description:
-          'Building this portfolio with Svelte 5, reusable components, and responsive layouts.',
-        related: [{ label: 'This portfolio', href: '#about' }],
-      },
-      {
-        id: 'git',
-        name: 'Git',
-        description:
-          'Versioning this portfolio and sharing project source code on GitHub.',
+        id: 'llm-apis',
+        name: 'LLM APIs · Agents',
+        context: 'Professional · AI applications',
+        points: [
+          'Claude and Gemini agents with charting tools',
+          'Structured event and topic extraction from news',
+          'GPT and document indexing for a knowledge assistant',
+        ],
         related: [
-          {
-            label: 'Portfolio source',
-            href: 'https://github.com/loiclovitana/loic-portofolio',
-          },
+          'Anaxa · Sports analytics & news',
+          'ELCA · Knowledge assistant',
+        ],
+      },
+      {
+        id: 'pytorch',
+        name: 'PyTorch',
+        context: 'Academic · Coursework & MSc thesis',
+        points: [
+          'Deep learning coursework and thesis work',
+          'LSTM experiments for contribution payment forecasting',
+        ],
+        related: ['EPFL / ELCA · MSc thesis'],
+      },
+      {
+        id: 'machine-learning',
+        name: 'Machine learning · Jupyter',
+        context: 'Professional & academic',
+        points: [
+          'Gradient boosting for disability insurance reassessment',
+          'Random forests for contribution payment forecasting',
+          'Jupyter notebooks for experimentation',
+          'Academic foundation in reinforcement learning',
+        ],
+        related: [
+          'ELCA · Disability insurance predictions',
+          'EPFL / ELCA · MSc thesis',
         ],
       },
     ],

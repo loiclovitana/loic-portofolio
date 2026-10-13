@@ -4,7 +4,7 @@
   import type { SkillGroup } from '../content';
 
   let { skillGroups }: { skillGroups: SkillGroup[] } = $props();
-  let selectedId = $state('machine-learning');
+  let selectedId = $state('python-fastapi');
   const selectedGroup = $derived(
     skillGroups.find((group) =>
       group.skills.some((skill) => skill.id === selectedId),
@@ -56,29 +56,32 @@
     {#if selectedSkill && selectedGroup}
       <p class="breadcrumb">skills / {selectedGroup.id} /</p>
       <h3>{selectedSkill.name}</h3>
-      <p class="description">{selectedSkill.description}</p>
+      <p class="context">{selectedSkill.context}</p>
+      <ul class="skill-points">
+        {#each selectedSkill.points as point (point)}
+          <li>{point}</li>
+        {/each}
+      </ul>
       {#if selectedSkill.related.length}
         <div class="related">
           <h4>Related work</h4>
           <ul>
-            {#each selectedSkill.related as link (link.href)}
-              <li>
-                <a
-                  href={link.href}
-                  target={link.href.startsWith('https://')
-                    ? '_blank'
-                    : undefined}
-                  rel={link.href.startsWith('https://')
-                    ? 'noreferrer'
-                    : undefined}
-                >
-                  {link.label}
-                  <span aria-hidden="true">↗</span>
-                </a>
-              </li>
+            {#each selectedSkill.related as work (work)}
+              <li>{work}</li>
             {/each}
           </ul>
         </div>
+      {/if}
+      {#if selectedSkill.reference}
+        <a
+          class="reference"
+          href={selectedSkill.reference.href}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {selectedSkill.reference.label} <span aria-hidden="true">↗</span>
+          <span class="sr-only"> (opens in a new tab)</span>
+        </a>
       {/if}
     {/if}
   </div>
@@ -206,12 +209,37 @@
     font-size: clamp(24px, 2.4vw, 32px);
     letter-spacing: -0.035em;
   }
-  .description {
+  .context {
+    margin-top: 12px;
+    color: var(--color-accent);
+    font: 12px/1.6 var(--font-mono);
+  }
+  .skill-points {
     margin-top: 20px;
     max-width: 42ch;
+    padding-left: 18px;
+    list-style: disc;
     color: var(--color-text-secondary);
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .skill-points li + li {
+    margin-top: 10px;
+  }
+  .skill-points li::marker {
+    color: var(--color-accent);
+  }
+  .reference {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--color-accent);
+    font-size: 13px;
+    line-height: 1.6;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .reference:hover {
+    color: var(--color-accent-hover);
   }
   .related {
     margin-top: 30px;
@@ -222,18 +250,12 @@
     margin: 0 0 12px;
     font: 500 13px/1.5 var(--font-mono);
   }
-  .related a {
-    display: inline-flex;
+  .related li {
+    display: flex;
     align-items: center;
-    gap: 12px;
     min-height: 36px;
     color: var(--color-accent);
     font: 14px/1.5 var(--font-mono);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .related a:hover {
-    color: var(--color-accent-hover);
   }
   @media (max-width: 760px) {
     .directory-layout {
