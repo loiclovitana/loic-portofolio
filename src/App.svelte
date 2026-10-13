@@ -7,8 +7,15 @@
   import MobileNavigation from './components/MobileNavigation.svelte';
   import ProjectCard from './components/ProjectCard.svelte';
   import Section from './components/Section.svelte';
+  import SkillsDirectory from './components/SkillsDirectory.svelte';
   import { sectionNavigation } from './navigation';
-  import { contactLinks, education, projects, sections } from './content';
+  import {
+    contactLinks,
+    education,
+    projects,
+    sections,
+    skillGroups,
+  } from './content';
 
   const year = new Date().getFullYear();
   let active = $state<string>(sections.about.id);
@@ -20,6 +27,10 @@
   <Header {active} />
   <main use:sectionNavigation={{ onselect: (id) => (active = id) }}>
     <Hero />
+
+    <Section {...sections.skills}>
+      <SkillsDirectory {skillGroups} />
+    </Section>
 
     <Section {...sections.projects}>
       <div class="projects">

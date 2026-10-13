@@ -24,7 +24,7 @@
   @media (max-width: 640px) {
     .app-bar {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
       gap: 4px;
       padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
       border-top: 1px solid var(--color-border-strong);

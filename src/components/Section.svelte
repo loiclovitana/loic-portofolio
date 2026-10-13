@@ -8,21 +8,18 @@
     command,
     title,
     icon,
-    intro,
     children,
   }: {
     id: string;
     command: string;
     title: string;
     icon: LucideIcon;
-    intro?: string;
     children: Snippet;
   } = $props();
 </script>
 
 <section {id} aria-labelledby={`${id}-title`} tabindex="-1">
   <SectionHeading id={`${id}-title`} {title} {icon} {command} />
-  {#if intro}<p class="section-intro">{intro}</p>{/if}
   {@render children()}
 </section>
 
