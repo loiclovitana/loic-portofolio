@@ -56,6 +56,8 @@ Selected entries have an accent outline. Section changes replace the current URL
 
 Experience uses a terminal-style split view: select a role on the left to read its projects and technologies on the right. Within the role list, `↑` / `↓` or `k` / `j` select roles, `Home` / `End` jump to the first / last role, and `Tab` moves into the description. At widths of 800px or less, the list becomes an accordion with one description open at a time; tap an entry or use `Enter` / `Space` to expand or collapse it. Experience content in `src/content.ts` is based on the LinkedIn notes in `src/experiences/`.
 
+Skills uses a directory tree with a detail pane on desktop. At widths of 800px or less, tapping a skill or pressing `Enter` / `Space` expands its description directly below the entry. One skill is open at a time, and tapping the open entry collapses it.
+
 The portrait scan line pauses when offscreen or in a background tab, includes a manual pause control, and respects reduced-motion preferences. Observers and event listeners are cleaned up when the component unmounts.
 
 ## Deployment

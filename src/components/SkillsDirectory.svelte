@@ -1,10 +1,13 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+  import ChevronDown from '@lucide/svelte/icons/chevron-down';
   import FolderOpen from '@lucide/svelte/icons/folder-open';
   import FileCode from '@lucide/svelte/icons/file-code';
-  import type { SkillGroup } from '../content';
+  import type { Skill, SkillGroup } from '../content';
 
   let { skillGroups }: { skillGroups: SkillGroup[] } = $props();
   let selectedId = $state('python-fastapi');
+  let mobile = $state(false);
   const selectedGroup = $derived(
     skillGroups.find((group) =>
       group.skills.some((skill) => skill.id === selectedId),
@@ -14,7 +17,49 @@
     selectedGroup?.skills.find((skill) => skill.id === selectedId) ??
       selectedGroup?.skills[0],
   );
+
+  onMount(() => {
+    const query = window.matchMedia('(max-width: 800px)');
+    const sync = () => {
+      mobile = query.matches;
+      if (!mobile && !selectedId)
+        selectedId = skillGroups[0]?.skills[0]?.id ?? '';
+    };
+    sync();
+    query.addEventListener('change', sync);
+    return () => query.removeEventListener('change', sync);
+  });
 </script>
+
+{#snippet description(skill: Skill)}
+  <p class="context">{skill.context}</p>
+  <ul class="skill-points">
+    {#each skill.points as point (point)}
+      <li>{point}</li>
+    {/each}
+  </ul>
+  {#if skill.related.length}
+    <div class="related">
+      <h4>Related work</h4>
+      <ul>
+        {#each skill.related as work (work)}
+          <li>{work}</li>
+        {/each}
+      </ul>
+    </div>
+  {/if}
+  {#if skill.reference}
+    <a
+      class="reference"
+      href={skill.reference.href}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {skill.reference.label} <span aria-hidden="true">↗</span>
+      <span class="sr-only"> (opens in a new tab)</span>
+    </a>
+  {/if}
+{/snippet}
 
 <div class="directory-layout">
   <div class="directory">
@@ -33,17 +78,43 @@
             {#each group.skills as skill (skill.id)}
               <li class="file">
                 <button
+                  id={`skill-button-${skill.id}`}
                   type="button"
-                  class:selected={selectedSkill?.id === skill.id}
-                  aria-pressed={selectedSkill?.id === skill.id}
-                  aria-controls="skill-details"
+                  class:selected={selectedId === skill.id}
+                  aria-pressed={mobile
+                    ? undefined
+                    : selectedSkill?.id === skill.id}
+                  aria-expanded={mobile ? selectedId === skill.id : undefined}
+                  aria-controls={mobile
+                    ? `skill-details-${skill.id}`
+                    : 'skill-details'}
                   data-nav-item
-                  onclick={() => (selectedId = skill.id)}
-                  onfocus={() => (selectedId = skill.id)}
+                  onclick={() =>
+                    (selectedId =
+                      mobile && selectedId === skill.id ? '' : skill.id)}
+                  onfocus={() => {
+                    if (!mobile) selectedId = skill.id;
+                  }}
                 >
                   <FileCode size={16} strokeWidth={1.5} aria-hidden="true" />
-                  <span>{skill.name}</span>
+                  <span class="skill-name">{skill.name}</span>
+                  {#if mobile}
+                    <span class="expand-marker" aria-hidden="true">
+                      <ChevronDown size={18} strokeWidth={1.6} />
+                    </span>
+                  {/if}
                 </button>
+                {#if mobile}
+                  <div
+                    class="detail mobile-detail"
+                    id={`skill-details-${skill.id}`}
+                    role="region"
+                    aria-labelledby={`skill-button-${skill.id}`}
+                    hidden={selectedId !== skill.id}
+                  >
+                    {@render description(skill)}
+                  </div>
+                {/if}
               </li>
             {/each}
           </ul>
@@ -52,39 +123,18 @@
     </ul>
   </div>
 
-  <div class="detail" id="skill-details" aria-live="polite" aria-atomic="true">
-    {#if selectedSkill && selectedGroup}
+  {#if !mobile && selectedSkill && selectedGroup}
+    <div
+      class="detail"
+      id="skill-details"
+      aria-live="polite"
+      aria-atomic="true"
+    >
       <p class="breadcrumb">skills / {selectedGroup.id} /</p>
       <h3>{selectedSkill.name}</h3>
-      <p class="context">{selectedSkill.context}</p>
-      <ul class="skill-points">
-        {#each selectedSkill.points as point (point)}
-          <li>{point}</li>
-        {/each}
-      </ul>
-      {#if selectedSkill.related.length}
-        <div class="related">
-          <h4>Related work</h4>
-          <ul>
-            {#each selectedSkill.related as work (work)}
-              <li>{work}</li>
-            {/each}
-          </ul>
-        </div>
-      {/if}
-      {#if selectedSkill.reference}
-        <a
-          class="reference"
-          href={selectedSkill.reference.href}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {selectedSkill.reference.label} <span aria-hidden="true">↗</span>
-          <span class="sr-only"> (opens in a new tab)</span>
-        </a>
-      {/if}
-    {/if}
-  </div>
+      {@render description(selectedSkill)}
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -172,8 +222,17 @@
     text-align: left;
     font: inherit;
   }
-  button span {
+  .skill-name {
+    flex: 1;
+    min-width: 0;
     overflow-wrap: anywhere;
+  }
+  .expand-marker {
+    display: flex;
+    color: var(--color-accent);
+  }
+  .selected .expand-marker {
+    transform: rotate(180deg);
   }
   button :global(svg),
   .folder :global(svg),
@@ -257,25 +316,56 @@
     color: var(--color-accent);
     font: 14px/1.5 var(--font-mono);
   }
-  @media (max-width: 760px) {
+  @media (max-width: 800px) {
     .directory-layout {
       grid-template-columns: minmax(0, 1fr);
-      gap: 24px;
+      gap: 0;
+      margin-top: 24px;
+    }
+    .groups {
+      margin-left: 0;
+    }
+    .group {
+      padding-left: 14px;
+    }
+    .group::before {
+      width: 14px;
+    }
+    .folder span {
+      overflow-wrap: anywhere;
+    }
+    .files {
+      margin-left: 0;
+      padding-block: 8px 20px;
+    }
+    .file {
+      padding-left: 0;
+      border-left: 0;
+    }
+    .file::before,
+    .file:last-child::after {
+      display: none;
     }
     button {
-      min-height: 44px;
+      min-height: 48px;
+      padding: 12px 10px;
     }
-    .file::before {
-      top: 22px;
-    }
-    .file:last-child::after {
-      height: 22px;
-    }
-    .detail {
+    .mobile-detail {
       position: static;
-      padding: 24px 0 0;
-      border-left: 0;
-      border-top: 1px solid var(--color-border);
+      padding: 4px 12px 20px;
+      border-left: 2px solid var(--color-accent);
+      font-family: var(--font-sans);
+      overflow-wrap: anywhere;
+    }
+    .mobile-detail .context {
+      margin-top: 0;
+    }
+    .skill-points {
+      margin-top: 14px;
+    }
+    .related {
+      margin-top: 20px;
+      padding-top: 14px;
     }
   }
 </style>
