@@ -111,11 +111,22 @@ export function sectionNavigation(
         'ArrowDown',
         'ArrowLeft',
         'ArrowRight',
+        'h',
+        'j',
+        'k',
+        'l',
       ].includes(event.key)
     ) {
       event.preventDefault();
-      const direction =
-        event.key.endsWith('Down') || event.key === 'ArrowRight' ? 1 : -1;
+      const direction = [
+        'PageDown',
+        'ArrowDown',
+        'ArrowRight',
+        'j',
+        'l',
+      ].includes(event.key)
+        ? 1
+        : -1;
       if (event.key.startsWith('Page')) show(active + direction);
       else moveEntry(direction);
     }

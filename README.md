@@ -48,9 +48,12 @@ A compact keyboard guide appears beneath the terminal on windows at least 1100px
 - `0`–`3`: About, Projects, Experience, Education (matching the header numbers; unused digits do nothing).
 - `PageUp` / `PageDown`: previous / next section.
 - `↑` or `←` / `↓` or `→`: previous / next entry, then the adjacent section at the boundary. About is selected as a whole. Entering another section with an arrow selects its last / first entry.
+- Vim keys `h` / `k` and `j` / `l`: previous and next entry, using the same navigation and section boundaries as the arrow keys.
 - `Tab` and `Enter`: normal link and control navigation. Shortcuts leave form controls and modified key combinations alone.
 
 Selected entries have an accent outline. Section changes replace the current URL hash without adding browser history entries, so direct links remain shareable and Back returns to the previous page. Section links reset the destination to its top. Navigation stops at the first and last section.
+
+Experience uses a terminal-style split view: select a role on the left to read its projects and technologies on the right. Within the role list, `↑` / `↓` or `k` / `j` select roles, `Home` / `End` jump to the first / last role, and `Tab` moves into the description. At widths of 800px or less, the list becomes an accordion with one description open at a time; tap an entry or use `Enter` / `Space` to expand or collapse it. Experience content in `src/content.ts` is based on the LinkedIn notes in `src/experiences/`.
 
 The portrait scan line pauses when offscreen or in a background tab, includes a manual pause control, and respects reduced-motion preferences. Observers and event listeners are cleaned up when the component unmounts.
 

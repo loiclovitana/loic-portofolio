@@ -59,7 +59,7 @@ export const projects: Project[] = [
   },
   {
     id: 'MASTER_THESIS',
-    title: 'Forecasting what’s next',
+    title: "Forecasting what's next",
     category: 'MACHINE LEARNING · RESEARCH',
     description:
       'Random forests and LSTMs to predict incorrect contribution payments and prevent accumulating interest.',
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     title: 'A world worth brewing',
     category: 'DATA VISUALIZATION · EXPLORATION',
     description:
-      'An interactive trip through the world’s beers, built with data from BeerAdvocate.',
+      "An interactive trip through the world's beers, built with data from BeerAdvocate.",
     image: beersImage,
     imageAlt: 'Interactive world map of beers from BeerAdvocate',
     link: {
@@ -83,28 +83,192 @@ export const projects: Project[] = [
   },
 ];
 
-export const experience = [
+export interface Experience {
+  id: string;
+  date: string;
+  title: string;
+  company: string;
+  href?: string;
+  location: string;
+  latest?: boolean;
+  volunteer?: boolean;
+  summary: string;
+  projects: { title: string; points: string[] }[];
+  technologies: string[];
+}
+
+export const experience: Experience[] = [
   {
-    date: '06.2025 — 08.2025',
+    id: 'anaxa',
+    date: '07.2025 — 08.2026',
     title: 'Software Engineer',
     company: 'Anaxa Sàrl',
     href: 'https://anaxa.ch',
     location: 'Geneva, Switzerland',
     latest: true,
+    summary:
+      'Built AI-powered applications and real-time analytics tools, from data pipelines and user interfaces to deployment and infrastructure.',
+    projects: [
+      {
+        title: 'AI-powered sports analytics',
+        points: [
+          'Built Claude and Gemini agents for Premier League player analytics, with tools for automated charts and data visualization.',
+          'Developed a Cube.js semantic layer with role-based access control.',
+        ],
+      },
+      {
+        title: 'News event tracking',
+        points: [
+          'Built a FastAPI and RabbitMQ pipeline to ingest news articles, use LLMs to extract structured event and topic information, and store the results in MongoDB.',
+          'Developed a React dashboard for journalists to find articles about an event and compare what each article says about it.',
+        ],
+      },
+      {
+        title: 'Trading systems',
+        points: [
+          'Built real-time ClickHouse analytics pipelines and a backtesting engine for crypto trading strategies.',
+          'Developed copy-trading services and a desktop application in Go, integrating exchange REST and WebSocket APIs.',
+        ],
+      },
+      {
+        title: 'Infrastructure & delivery',
+        points: [
+          'Provisioned infrastructure and managed access with Ansible.',
+          'Deployed services with Docker and NGINX, and automated CI/CD with GitHub Actions.',
+        ],
+      },
+    ],
+    technologies: [
+      'Go',
+      'FastAPI',
+      'React',
+      'MongoDB',
+      'RabbitMQ',
+      'ClickHouse',
+      'Cube.js',
+      'Claude / Gemini',
+      'Docker',
+      'Ansible',
+      'GitHub Actions',
+    ],
   },
   {
-    date: '03.2021 — 05.2025',
-    title: 'Data Engineer',
+    id: 'elca-senior',
+    date: '01.2023 — 07.2025',
+    title: 'Senior Engineer',
     company: 'ELCA Informatique',
     location: 'Lausanne, Switzerland',
-    description:
-      'End-to-end data migration pipelines, built in close collaboration with product owners and clients.',
+    href: 'https://www.elca.ch/',
+    summary:
+      'Designed data migration pipelines and backend services for Swiss social insurance, working closely with business teams and on-boarding new engineers.',
+    projects: [
+      {
+        title: 'Social insurance data migration',
+        points: [
+          'Translated AHV/IV insurance requirements into staging data models and SQL procedures for ingestion, transformation and loading.',
+          'Deployed and automated SSIS packages, generated KPIs and reports.',
+        ],
+      },
+      {
+        title: 'Backend & cloud services',
+        points: [
+          'Built Spring Boot data synchronization services and integrated an upgrade to the external Sedex API.',
+          'Specified synchronization tools and deployed automated data analysis and transformations.',
+        ],
+      },
+      {
+        title: 'AI knowledge assistant',
+        points: [
+          'Created a proof-of-concept API combining OpenAI GPT and document indexing to answer questions about Swiss social insurance.',
+        ],
+      },
+    ],
+    technologies: ['SQL Server', 'SSIS', 'Data engineering', 'Spring Boot'],
   },
   {
-    date: '09.2020 — 02.2021',
+    id: 'elca-engineer',
+    date: '04.2021 — 12.2022',
+    title: 'Engineer',
+    company: 'ELCA Informatique',
+    href: 'https://www.elca.ch/',
+    location: 'Lausanne, Switzerland',
+    summary:
+      'Combined machine learning and data engineering to support social insurance teams',
+    projects: [
+      {
+        title: 'Social insurance chatbot',
+        points: [
+          'Worked with call centers and business experts to identify user needs, design conversation flows and define AI intents.',
+          "Collected, cleaned and classified training data to improve the chatbot's responses.",
+        ],
+      },
+      {
+        title: 'Disability insurance predictions',
+        points: [
+          'Trained and evaluated gradient boosting models to support reassessment of disability insurance files.',
+          'Supervised an intern and worked with disability insurance offices on data collection and business requirements.',
+        ],
+      },
+      {
+        title: 'Contact data migration',
+        points: [
+          'Maintained and adapted SQL Server staging models and stored procedures for ingestion, transformation and loading, backed by unit and integration tests.',
+          'Participation of architecture change and industrialistation from pure SQL procedure to versionned SSIS and SQL server project.',
+        ],
+      },
+    ],
+    technologies: [
+      'SQL Server',
+      'SSIS',
+      'Machine learning',
+      'Gradient boosting',
+      'Conversational AI',
+    ],
+  },
+  {
+    id: 'elca-intern',
+    date: '09.2020 — 04.2021',
     title: 'Data Science Intern',
     company: 'ELCA Informatique',
+    href: 'https://www.elca.ch/',
     location: 'Lausanne, Switzerland',
+    summary:
+      "Completed a data science internship at ELCA alongside my EPFL master's thesis, exploring machine learning for social insurance.",
+    projects: [
+      {
+        title: 'Forecasting contribution payments',
+        points: [
+          'Explored random forests and LSTMs to predict incorrect contribution payments and help prevent accumulating interest.',
+        ],
+      },
+    ],
+    technologies: ['Machine learning', 'Random forests', 'LSTM'],
+  },
+  {
+    id: 'esn',
+    date: '09.2018 — 08.2020',
+    title: 'Webmaster',
+    company: 'ESN EPFL',
+    location: 'Lausanne, Switzerland',
+    href: 'https://epfl.esn.ch/',
+    volunteer: true,
+    summary:
+      'Volunteered with the Erasmus Student Network at EPFL, keeping its website running and helping international students make the most of their exchange.',
+    projects: [
+      {
+        title: 'Website & committee',
+        points: [
+          "Maintained the association's website and kept its content up to date. Took part in committee decisions.",
+        ],
+      },
+      {
+        title: 'Events for 200+ students',
+        points: [
+          'Helped organize student activities and events, coordinating equipment, rentals and transport.',
+        ],
+      },
+    ],
+    technologies: ['Website management', 'Event logistics'],
   },
 ];
 

@@ -66,7 +66,7 @@
   const details = [
     { label: 'Location', value: 'Switzerland' },
     {
-      label: 'Current',
+      label: 'Last role',
       value: `${experience[0].company} · ${experience[0].title}`,
     },
     {

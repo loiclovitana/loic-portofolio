@@ -1,19 +1,14 @@
 <script lang="ts">
   import Hero from './components/Hero.svelte';
   import ContactIcon from './components/ContactIcon.svelte';
+  import ExperienceBrowser from './components/ExperienceBrowser.svelte';
   import Header from './components/Header.svelte';
   import KeyboardHelp from './components/KeyboardHelp.svelte';
   import MobileNavigation from './components/MobileNavigation.svelte';
   import ProjectCard from './components/ProjectCard.svelte';
   import Section from './components/Section.svelte';
   import { sectionNavigation } from './navigation';
-  import {
-    contactLinks,
-    education,
-    experience,
-    projects,
-    sections,
-  } from './content';
+  import { contactLinks, education, projects, sections } from './content';
 
   const year = new Date().getFullYear();
   let active = $state<string>(sections.about.id);
@@ -35,30 +30,7 @@
     </Section>
 
     <Section {...sections.experience}>
-      <div class="timeline">
-        {#each experience as job (job.title)}
-          <article data-nav-item tabindex="-1">
-            <div class="job-details">
-              <h3>{job.title}</h3>
-              <p class="job-company">
-                {#if job.href}<a
-                    href={job.href}
-                    target="_blank"
-                    rel="noreferrer">{job.company} ↗</a
-                  >{:else}{job.company}{/if}
-              </p>
-              {#if job.description}<p class="job-description">
-                  {job.description}
-                </p>{/if}
-            </div>
-            <div class="job-meta">
-              <p class="timeline-date">{job.date}</p>
-              <p class="job-location">{job.location}</p>
-              {#if job.latest}<span class="tag">LATEST</span>{/if}
-            </div>
-          </article>
-        {/each}
-      </div>
+      <ExperienceBrowser />
     </Section>
 
     <Section {...sections.education}>
@@ -103,9 +75,7 @@
 </div>
 
 <style>
-  .statusbar,
-  .timeline-date,
-  .tag {
+  .statusbar {
     font-family: var(--font-mono);
   }
   .terminal {
@@ -138,58 +108,6 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
     margin-top: 30px;
-  }
-  .timeline {
-    margin-top: 30px;
-    border-top: 1px solid var(--color-border);
-  }
-  .timeline article {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 20px;
-    padding: 27px 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-  .timeline article:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
-  .job-meta {
-    text-align: right;
-  }
-  .timeline-date {
-    color: var(--color-muted);
-    font-size: 14px;
-  }
-  .tag {
-    display: table;
-    font-size: 12px;
-    color: var(--color-accent);
-    padding: 1px 5px;
-    margin: 8px 0 0 auto;
-    border: 1px solid var(--color-accent-soft);
-    border-radius: 2px;
-  }
-  .timeline h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
-  }
-  .job-details > p {
-    font-size: 16px;
-    color: var(--color-text-secondary);
-  }
-  .job-location {
-    display: block;
-    font-size: 14px;
-    color: var(--color-muted);
-    margin-top: 3px;
-  }
-  .job-details > .job-description {
-    margin-top: 12px;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-muted);
-    max-width: 600px;
   }
   .education-grid {
     display: grid;
@@ -281,9 +199,6 @@
     .projects {
       gap: 12px;
     }
-    .timeline article {
-      gap: 15px;
-    }
   }
   @media (max-width: 900px) {
     .projects {
@@ -309,56 +224,6 @@
       grid-template-columns: 1fr;
       gap: 20px;
       margin-top: 25px;
-    }
-    .timeline {
-      margin-top: 24px;
-    }
-    .timeline article {
-      grid-template-columns: minmax(0, 1fr) auto;
-      grid-template-areas:
-        'date tag'
-        'title title'
-        'company company'
-        'location location'
-        'description description';
-      gap: 0 12px;
-      padding-block: 22px;
-    }
-    .job-details,
-    .job-meta {
-      display: contents;
-      text-align: left;
-    }
-    .timeline-date {
-      grid-area: date;
-      align-self: center;
-      font-size: 12px;
-    }
-    .tag {
-      grid-area: tag;
-      align-self: center;
-      margin: 0;
-      font-size: 10px;
-      letter-spacing: 0.04em;
-    }
-    .timeline h3 {
-      grid-area: title;
-      margin: 12px 0 6px;
-      font-size: 18px;
-      line-height: 1.3;
-    }
-    .job-details > .job-company {
-      grid-area: company;
-      font-size: 15px;
-    }
-    .job-location {
-      grid-area: location;
-      margin-top: 2px;
-      font-size: 13px;
-    }
-    .job-details > .job-description {
-      grid-area: description;
-      font-size: 14px;
     }
     .education-grid {
       grid-template-columns: 1fr;
