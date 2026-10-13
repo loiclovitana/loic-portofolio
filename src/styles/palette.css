@@ -78,7 +78,6 @@
   --color-shadow: #0d0204;
   --page-background-desktop: url('../../assets/images/backgrounds/garnet-sunset.webp');
   --page-background-mobile: url('../../assets/images/backgrounds/garnet-sunset-mobile.webp');
-
 }
 
 :root[data-theme='garnet'] ::selection {

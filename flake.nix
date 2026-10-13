@@ -12,6 +12,7 @@
         let pkgs = nixpkgs.legacyPackages.${system};
         in {
           default = pkgs.mkShell {
+            name = "loic-portfolio";
             packages = [ pkgs.nodejs_22 ];
           };
         });

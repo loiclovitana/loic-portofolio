@@ -199,7 +199,7 @@ export const experience: Experience[] = [
         title: 'Social insurance chatbot',
         points: [
           'Worked with call centers and business experts to identify user needs, design conversation flows and define AI intents.',
-          'Collected, cleaned and classified training data to improve the chatbot\'s responses.',
+          "Collected, cleaned and classified training data to improve the chatbot's responses.",
         ],
       },
       {
@@ -213,7 +213,7 @@ export const experience: Experience[] = [
         title: 'Contact data migration',
         points: [
           'Maintained and adapted SQL Server staging models and stored procedures for ingestion, transformation and loading, backed by unit and integration tests.',
-          'Participation of architecture change and industrialistation from pure SQL procedure to versionned SSIS and SQL server project.'
+          'Participation of architecture change and industrialistation from pure SQL procedure to versionned SSIS and SQL server project.',
         ],
       },
     ],
@@ -233,7 +233,7 @@ export const experience: Experience[] = [
     href: 'https://www.elca.ch/',
     location: 'Lausanne, Switzerland',
     summary:
-      'Completed a data science internship at ELCA alongside my EPFL master\'s thesis, exploring machine learning for social insurance.',
+      "Completed a data science internship at ELCA alongside my EPFL master's thesis, exploring machine learning for social insurance.",
     projects: [
       {
         title: 'Forecasting contribution payments',
@@ -258,7 +258,7 @@ export const experience: Experience[] = [
       {
         title: 'Website & committee',
         points: [
-          'Maintained the association\'s website and kept its content up to date. Took part in committee decisions.',
+          "Maintained the association's website and kept its content up to date. Took part in committee decisions.",
         ],
       },
       {
