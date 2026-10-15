@@ -54,6 +54,120 @@ export interface SkillGroup {
 
 export const skillGroups: SkillGroup[] = [
   {
+    id: 'ai-and-machine-learning',
+    skills: [
+      {
+        id: 'llm-apis',
+        name: 'LLM APIs · Agents',
+        context: 'Professional · AI applications',
+        points: [
+          'Claude and Gemini agents with charting tools',
+          'Structured event and topic extraction from news',
+          'GPT and document indexing for a knowledge assistant',
+        ],
+        related: [
+          'Anaxa · Sports analytics & news',
+          'ELCA · Knowledge assistant',
+        ],
+      },
+      {
+        id: 'pytorch',
+        name: 'PyTorch',
+        context: 'Academic · Coursework & MSc thesis',
+        points: [
+          'Deep learning coursework and thesis work',
+          'LSTM experiments for contribution payment forecasting',
+        ],
+        related: ['EPFL / ELCA · MSc thesis'],
+      },
+      {
+        id: 'machine-learning',
+        name: 'Machine learning · Jupyter',
+        context: 'Professional & academic',
+        points: [
+          'Gradient boosting for disability insurance reassessment',
+          'Random forests for contribution payment forecasting',
+          'Jupyter notebooks for experimentation',
+          'Academic foundation in reinforcement learning',
+        ],
+        related: [
+          'ELCA · Disability insurance predictions',
+          'EPFL / ELCA · MSc thesis',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'data-engineering',
+    skills: [
+      {
+        id: 'sql-server-ssis',
+        name: 'SQL Server · SSIS',
+        context: 'Professional · 5 years on data migration',
+        points: [
+          'Staging models and stored procedures for ETL',
+          'SSIS package deployment and automation',
+          'Versioned SQL Server projects and SSIS packages',
+          'Unit and integration tests for migration pipelines',
+        ],
+        related: ['ELCA · Social insurance data migration'],
+      },
+      {
+        id: 'postgresql',
+        name: 'PostgreSQL',
+        context: 'Professional · Application usage',
+        points: [
+          'Primary database for crypto applications at Anaxa',
+          'SQL Server experience applied to PostgreSQL',
+        ],
+        related: ['Anaxa · Trading systems'],
+      },
+      {
+        id: 'mongodb',
+        name: 'MongoDB',
+        context: 'Professional · News aggregation',
+        points: [
+          'Primary database for the news aggregator',
+          'Storage for articles and LLM-extracted events and topics',
+        ],
+        related: ['Anaxa · News event tracking'],
+      },
+      {
+        id: 'rabbitmq',
+        name: 'RabbitMQ',
+        context: 'Professional · Setup & integration',
+        points: [
+          'Complete setup and configuration for news aggregation',
+          'Message-based article processing pipeline',
+          'Earlier integration experience with Java at ELCA',
+        ],
+        related: ['Anaxa · News event tracking', 'ELCA · Java services'],
+      },
+      {
+        id: 'clickhouse-cube',
+        name: 'ClickHouse · Cube.js',
+        context: 'Professional · Analytics at Anaxa',
+        points: [
+          'Real-time ClickHouse pipelines for crypto analytics',
+          'Cube.js semantic layer for sports analytics',
+          'Role-based access control for analytics data',
+        ],
+        related: ['Anaxa · Trading systems', 'Anaxa · Sports analytics'],
+      },
+      {
+        id: 'tableau-d3',
+        name: 'Tableau · D3.js',
+        context: 'Academic · Data visualization',
+        points: [
+          'Tableau visualizations of MSc thesis results',
+          'One week of Tableau training',
+          'D3.js foundation from coursework',
+        ],
+        related: ['EPFL / ELCA · MSc thesis', 'EPFL · Coursework'],
+      },
+    ],
+  },
+  {
     id: 'software-engineering',
     skills: [
       {
@@ -138,120 +252,6 @@ export const skillGroups: SkillGroup[] = [
           'Explored: C++ and 3D rendering',
         ],
         related: [],
-      },
-    ],
-  },
-  {
-    id: 'data-engineering',
-    skills: [
-      {
-        id: 'sql-server-ssis',
-        name: 'SQL Server · SSIS',
-        context: 'Professional · 5 years on data migration',
-        points: [
-          'Staging models and stored procedures for ETL',
-          'SSIS package deployment and automation',
-          'Versioned SQL Server projects and SSIS packages',
-          'Unit and integration tests for migration pipelines',
-        ],
-        related: ['ELCA · Social insurance data migration'],
-      },
-      {
-        id: 'postgresql',
-        name: 'PostgreSQL',
-        context: 'Professional · Application usage',
-        points: [
-          'Primary database for crypto applications at Anaxa',
-          'SQL Server experience applied to PostgreSQL',
-        ],
-        related: ['Anaxa · Trading systems'],
-      },
-      {
-        id: 'mongodb',
-        name: 'MongoDB',
-        context: 'Professional · News aggregation',
-        points: [
-          'Primary database for the news aggregator',
-          'Storage for articles and LLM-extracted events and topics',
-        ],
-        related: ['Anaxa · News event tracking'],
-      },
-      {
-        id: 'rabbitmq',
-        name: 'RabbitMQ',
-        context: 'Professional · Setup & integration',
-        points: [
-          'Complete setup and configuration for news aggregation',
-          'Message-based article processing pipeline',
-          'Earlier integration experience with Java at ELCA',
-        ],
-        related: ['Anaxa · News event tracking', 'ELCA · Java services'],
-      },
-      {
-        id: 'clickhouse-cube',
-        name: 'ClickHouse · Cube.js',
-        context: 'Professional · Analytics at Anaxa',
-        points: [
-          'Real-time ClickHouse pipelines for crypto analytics',
-          'Cube.js semantic layer for sports analytics',
-          'Role-based access control for analytics data',
-        ],
-        related: ['Anaxa · Trading systems', 'Anaxa · Sports analytics'],
-      },
-      {
-        id: 'tableau-d3',
-        name: 'Tableau · D3.js',
-        context: 'Academic · Data visualization',
-        points: [
-          'Tableau visualizations of MSc thesis results',
-          'One week of Tableau training',
-          'D3.js foundation from coursework',
-        ],
-        related: ['EPFL / ELCA · MSc thesis', 'EPFL · Coursework'],
-      },
-    ],
-  },
-  {
-    id: 'ai-and-machine-learning',
-    skills: [
-      {
-        id: 'llm-apis',
-        name: 'LLM APIs · Agents',
-        context: 'Professional · AI applications',
-        points: [
-          'Claude and Gemini agents with charting tools',
-          'Structured event and topic extraction from news',
-          'GPT and document indexing for a knowledge assistant',
-        ],
-        related: [
-          'Anaxa · Sports analytics & news',
-          'ELCA · Knowledge assistant',
-        ],
-      },
-      {
-        id: 'pytorch',
-        name: 'PyTorch',
-        context: 'Academic · Coursework & MSc thesis',
-        points: [
-          'Deep learning coursework and thesis work',
-          'LSTM experiments for contribution payment forecasting',
-        ],
-        related: ['EPFL / ELCA · MSc thesis'],
-      },
-      {
-        id: 'machine-learning',
-        name: 'Machine learning · Jupyter',
-        context: 'Professional & academic',
-        points: [
-          'Gradient boosting for disability insurance reassessment',
-          'Random forests for contribution payment forecasting',
-          'Jupyter notebooks for experimentation',
-          'Academic foundation in reinforcement learning',
-        ],
-        related: [
-          'ELCA · Disability insurance predictions',
-          'EPFL / ELCA · MSc thesis',
-        ],
       },
     ],
   },
