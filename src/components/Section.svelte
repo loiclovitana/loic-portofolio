@@ -22,13 +22,3 @@
   <SectionHeading id={`${id}-title`} {title} {icon} {command} />
   {@render children()}
 </section>
-
-<style>
-  .section-intro {
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--color-muted);
-    margin-top: 14px;
-    max-width: 550px;
-  }
-</style>
